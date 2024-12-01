@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<!--
-Author: Keenthemes
-Product Name: MetronicProduct Version: 8.2.9
-Purchase: https://1.envato.market/Vm7VRE
-Website: http://www.keenthemes.com
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
--->
 <html lang="en">
 <!--begin::Head-->
 
 <head>
     {{--
     <base href="../../../" /> --}}
-    <title>Metronic - The World's #1 Selling Tailwind CSS & Bootstrap Admin Template by KeenThemes</title>
+    <title>Verifikasi Data Sertifikat Pendidik Program Profesi Guru</title>
     <meta charset="utf-8" />
-    <meta name="description"
-        content="The most advanced Tailwind CSS & Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
-    <meta name="keywords"
-        content="tailwind, tailwindcss, metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+    <meta name="description" content="Verifikasi Data Sertifikat Pendidik Program Profesi Guru" />
+    <meta name="keywords" content="Verifikasi Data Sertifikat Pendidik Program Profesi Guru" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title"
-        content="Metronic - The World's #1 Selling Tailwind CSS & Bootstrap Admin Template by KeenThemes" />
-    <meta property="og:url" content="https://keenthemes.com/metronic" />
-    <meta property="og:site_name" content="Metronic by Keenthemes" />
-    <link rel="canonical" href="http://preview.keenthemes.comauthentication/layouts/overlay/sign-in.html" />
+    <meta property="og:title" content="Verifikasi Data Sertifikat Pendidik Program Profesi Guru" />
+    <meta property="og:url" content="#" />
+    <meta property="og:site_name" content="#" />
+    <link rel="canonical" href="#" />
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -106,174 +92,55 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Heading-->
                                 <div class="text-center mb-11">
                                     <!--begin::Title-->
-                                    <h1 class="mb-3 text-gray-900 fw-bolder">Sign In</h1>
+                                    <h1 class="mb-3 text-gray-900 fw-bolder">Login</h1>
                                     <!--end::Title-->
                                     <!--begin::Subtitle-->
-                                    <div class="text-gray-500 fw-semibold fs-6">Your Social Campaigns</div>
+                                    <div class="text-gray-500 fw-semibold fs-6">Untuk Verifikasi Data</div>
                                     <!--end::Subtitle=-->
                                 </div>
-                                <!--begin::Heading-->
-                                <!--begin::Login options-->
-                                <div class="row g-3 mb-9">
-                                    <!--begin::Col-->
-                                    <div class="col-md-6">
-                                        <!--begin::Google link=-->
-                                        <a href="#"
-                                            class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                            <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg"
-                                                class="h-15px me-3" />Sign in with Google</a>
-                                        <!--end::Google link=-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-md-6">
-                                        <!--begin::Google link=-->
-                                        <a href="#"
-                                            class="btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100">
-                                            <img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg"
-                                                class="theme-light-show h-15px me-3" />
-                                            <img alt="Logo" src="assets/media/svg/brand-logos/apple-black-dark.svg"
-                                                class="theme-dark-show h-15px me-3" />Sign in with Apple</a>
-                                        <!--end::Google link=-->
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-                                <!--end::Login options-->
-                                <!--begin::Separator-->
-                                <div class="separator separator-content my-14">
-                                    <span class="text-gray-500 w-125px fw-semibold fs-7">Or with email</span>
-                                </div>
-                                <!--end::Separator-->
+
                                 <!--begin::Input group=-->
                                 <div class="mb-8 fv-row">
                                     <!--begin::Email-->
-                                    <input type="text" placeholder="Email" name="email" autocomplete="off"
+                                    <input type="text" placeholder="NIM" name="nim" autocomplete="off"
                                         class="bg-transparent form-control" />
                                     <!--end::Email-->
                                 </div>
                                 <!--end::Input group=-->
-                                <div class="mb-3 fv-row">
+                                <div class="mb-10 fv-row">
                                     <!--begin::Password-->
-                                    <input type="password" placeholder="Password" name="password" autocomplete="off"
-                                        class="bg-transparent form-control" />
+                                    <input type="password" placeholder="Password (NIM+Tahun Lahir)" name="password"
+                                        autocomplete="off" class="bg-transparent form-control" />
                                     <!--end::Password-->
                                 </div>
                                 <!--end::Input group=-->
-                                <!--begin::Wrapper-->
-                                <div class="flex-wrap gap-3 mb-8 d-flex flex-stack fs-base fw-semibold">
-                                    <div></div>
-                                    <!--begin::Link-->
-                                    <a href="authentication/layouts/overlay/reset-password.html"
-                                        class="link-primary">Forgot Password ?</a>
-                                    <!--end::Link-->
-                                </div>
-                                <!--end::Wrapper-->
+
                                 <!--begin::Submit button-->
                                 <div class="mb-10 d-grid">
                                     <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
                                         <!--begin::Indicator label-->
-                                        <span class="indicator-label">Sign In</span>
+                                        <span class="indicator-label">Login</span>
                                         <!--end::Indicator label-->
                                         <!--begin::Indicator progress-->
-                                        <span class="indicator-progress">Please wait...
+                                        <span class="indicator-progress">Mohon Tunggu...
                                             <span
                                                 class="align-middle spinner-border spinner-border-sm ms-2"></span></span>
                                         <!--end::Indicator progress-->
                                     </button>
                                 </div>
                                 <!--end::Submit button-->
-                                <!--begin::Sign up-->
-                                <div class="text-center text-gray-500 fw-semibold fs-6">Not a Member yet?
-                                    <a href="authentication/layouts/overlay/sign-up.html" class="link-primary">Sign
-                                        up</a>
-                                </div>
-                                <!--end::Sign up-->
+
                             </form>
                             <!--end::Form-->
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Footer-->
                         <div class="d-flex flex-stack">
-                            <!--begin::Languages-->
-                            <div class="me-10">
-                                <!--begin::Toggle-->
-                                <button
-                                    class="btn btn-flex btn-link btn-color-gray-700 btn-active-color-primary rotate fs-base"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
-                                    data-kt-menu-offset="0px, 0px">
-                                    <img data-kt-element="current-lang-flag" class="rounded w-20px h-20px me-3"
-                                        src="assets/media/flags/united-states.svg" alt="" />
-                                    <span data-kt-element="current-lang-name" class="me-1">English</span>
-                                    <i class="m-0 rotate-180 ki-duotone ki-down fs-5 text-muted"></i>
-                                </button>
-                                <!--end::Toggle-->
-                                <!--begin::Menu-->
-                                <div class="py-4 menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px fs-7"
-                                    data-kt-menu="true" id="kt_auth_lang_menu">
-                                    <!--begin::Menu item-->
-                                    <div class="px-3 menu-item">
-                                        <a href="#" class="px-5 menu-link d-flex" data-kt-lang="English">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img data-kt-element="lang-flag" class="rounded-1"
-                                                    src="assets/media/flags/united-states.svg" alt="" />
-                                            </span>
-                                            <span data-kt-element="lang-name">English</span>
-                                        </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="px-3 menu-item">
-                                        <a href="#" class="px-5 menu-link d-flex" data-kt-lang="Spanish">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img data-kt-element="lang-flag" class="rounded-1"
-                                                    src="assets/media/flags/spain.svg" alt="" />
-                                            </span>
-                                            <span data-kt-element="lang-name">Spanish</span>
-                                        </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="px-3 menu-item">
-                                        <a href="#" class="px-5 menu-link d-flex" data-kt-lang="German">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img data-kt-element="lang-flag" class="rounded-1"
-                                                    src="assets/media/flags/germany.svg" alt="" />
-                                            </span>
-                                            <span data-kt-element="lang-name">German</span>
-                                        </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="px-3 menu-item">
-                                        <a href="#" class="px-5 menu-link d-flex" data-kt-lang="Japanese">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img data-kt-element="lang-flag" class="rounded-1"
-                                                    src="assets/media/flags/japan.svg" alt="" />
-                                            </span>
-                                            <span data-kt-element="lang-name">Japanese</span>
-                                        </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="px-3 menu-item">
-                                        <a href="#" class="px-5 menu-link d-flex" data-kt-lang="French">
-                                            <span class="symbol symbol-20px me-4">
-                                                <img data-kt-element="lang-flag" class="rounded-1"
-                                                    src="assets/media/flags/france.svg" alt="" />
-                                            </span>
-                                            <span data-kt-element="lang-name">French</span>
-                                        </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </div>
-                            <!--end::Languages-->
                             <!--begin::Links-->
                             <div class="gap-5 d-flex fw-semibold text-primary fs-base">
-                                <a href="pages/team.html" target="_blank">Terms</a>
-                                <a href="pages/pricing/column.html" target="_blank">Plans</a>
-                                <a href="pages/contact.html" target="_blank">Contact Us</a>
+                                <a href="#" target="_blank">Terms</a>
+                                {{-- <a href="#" target="_blank">Plans</a> --}}
+                                <a href="#" target="_blank">Contact Us</a>
                             </div>
                             <!--end::Links-->
                         </div>
