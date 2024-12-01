@@ -88,7 +88,8 @@
                         <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
                             <!--begin::Form-->
                             <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-                                data-kt-redirect-url="index.html" action="#">
+                                data-kt-redirect-url="{{ route('dashboard.mahasiswa') }}"
+                                action="{{ route('mahasiswa.login') }}">
                                 <!--begin::Heading-->
                                 <div class="text-center mb-11">
                                     <!--begin::Title-->

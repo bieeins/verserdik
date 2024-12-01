@@ -12,21 +12,21 @@ var KTSigninGeneral = (function () {
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         validator = FormValidation.formValidation(form, {
             fields: {
-                email: {
+                nim: {
                     validators: {
                         // regexp: {
                         //     regexp: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                         //     message: "The value is not a valid  aemailddress",
                         // },
                         notEmpty: {
-                            message: "Nim address is required",
+                            message: "Nim diperlukan",
                         },
                     },
                 },
                 password: {
                     validators: {
                         notEmpty: {
-                            message: "The password is required",
+                            message: "Password diperlukan",
                         },
                     },
                 },
@@ -133,10 +133,10 @@ var KTSigninGeneral = (function () {
 
                                 // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                                 Swal.fire({
-                                    text: "You have successfully logged in!",
+                                    text: "Anda telah berhasil login !",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Ok !",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     },
@@ -152,10 +152,10 @@ var KTSigninGeneral = (function () {
                             } else {
                                 // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
                                 Swal.fire({
-                                    text: "Sorry, the email or password is incorrect, please try again.",
+                                    text: "Maaf, email atau kata sandi salah, silakan coba lagi.",
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok, got it!",
+                                    confirmButtonText: "Ok !",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     },
@@ -163,15 +163,44 @@ var KTSigninGeneral = (function () {
                             }
                         })
                         .catch(function (error) {
+                            let pesan;
+                            if (error.response) {
+                                const data = error.response.data;
+                                // Display error messages
+                                if (data.errors && data.errors.nim) {
+                                    // document.querySelector('#email-error').textContent = data.errors.email[0];
+                                    pesan = data.errors.nim[0];
+                                }
+
+                                if (data.message) {
+                                    // document.querySelector('#general-error').textContent = data.message;
+                                    pesan = data.message;
+                                }
+                            } else {
+                                // Handle other errors (e.g., network errors)
+                                // document.querySelector('#general-error').textContent = 'An error occurred. Please try again later.';
+                                pesan =
+                                    "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.";
+                            }
                             Swal.fire({
-                                text: "Sorry, looks like there are some errors detected, please try again.",
+                                // text: "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.",
+                                text: pesan,
                                 icon: "error",
                                 buttonsStyling: false,
-                                confirmButtonText: "Ok, got it!",
+                                confirmButtonText: "OK !",
                                 customClass: {
                                     confirmButton: "btn btn-primary",
                                 },
                             });
+                            // Swal.fire({
+                            //     text: "Sorry, looks like there are some errors detected, please try again.",
+                            //     icon: "error",
+                            //     buttonsStyling: false,
+                            //     confirmButtonText: "Ok, got it!",
+                            //     customClass: {
+                            //         confirmButton: "btn btn-primary",
+                            //     },
+                            // });
                         })
                         .then(() => {
                             // Hide loading indication
@@ -182,15 +211,15 @@ var KTSigninGeneral = (function () {
                         });
                 } else {
                     // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        },
-                    });
+                    // Swal.fire({
+                    //     text: "Sorry, looks like there are some errors detected, please try again.",
+                    //     icon: "error",
+                    //     buttonsStyling: false,
+                    //     confirmButtonText: "Ok, got it!",
+                    //     customClass: {
+                    //         confirmButton: "btn btn-primary",
+                    //     },
+                    // });
                 }
             });
         });
@@ -214,13 +243,13 @@ var KTSigninGeneral = (function () {
 
             handleValidation();
 
-            if (
-                isValidUrl(submitButton.closest("form").getAttribute("action"))
-            ) {
-                handleSubmitAjax(); // use for ajax submit
-            } else {
-                handleSubmitDemo(); // used for demo purposes only
-            }
+            // if (
+            //     isValidUrl(submitButton.closest("form").getAttribute("action"))
+            // ) {
+            handleSubmitAjax(); // use for ajax submit
+            // } else {
+            //     handleSubmitDemo(); // used for demo purposes only
+            // }
         },
     };
 })();
