@@ -44,6 +44,7 @@ return [
         'mahasiswa' => [
             'driver' => 'session',
             'provider' => 'mahasiswa',
+            'cookie' => 'mahasiswa_session_cookie',
         ],
     ],
 
@@ -72,7 +73,7 @@ return [
 
         'mahasiswa' => [
             'driver' => 'eloquent',
-            'model' => 'App\Models\Mahasiswa',
+            'model' => App\Models\Mahasiswa::class,
         ],
 
         // 'users' => [

@@ -118,44 +118,47 @@ var KTSigninGeneral = (function () {
                     // Show loading indication
                     submitButton.setAttribute("data-kt-indicator", "on");
 
-                    // Disable button to avoid multiple click
+                    // Disable button to avoid multiple clicks
                     submitButton.disabled = true;
 
-                    // Check axios library docs: https://axios-http.com/docs/intro
+                    // Send AJAX request using Axios
                     axios
                         .post(
                             submitButton.closest("form").getAttribute("action"),
                             new FormData(form)
                         )
                         .then(function (response) {
-                            if (response) {
+                            // Check if login was successful based on backend response
+                            if (response.data.success) {
+                                // Reset form
                                 form.reset();
 
-                                // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+                                // Show success message
                                 Swal.fire({
-                                    text: "Anda telah berhasil login !",
+                                    text:
+                                        response.data.message ||
+                                        "Anda telah berhasil login!",
                                     icon: "success",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok !",
+                                    confirmButtonText: "Ok!",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     },
                                 });
 
-                                const redirectUrl = form.getAttribute(
-                                    "data-kt-redirect-url"
-                                );
-
-                                if (redirectUrl) {
-                                    location.href = redirectUrl;
+                                // Redirect if a URL is provided
+                                if (response.data.redirect_url) {
+                                    location.href = response.data.redirect_url;
                                 }
                             } else {
-                                // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+                                // Show error message from backend
                                 Swal.fire({
-                                    text: "Maaf, email atau kata sandi salah, silakan coba lagi.",
+                                    text:
+                                        response.data.message ||
+                                        "NIM atau password salah.",
                                     icon: "error",
                                     buttonsStyling: false,
-                                    confirmButtonText: "Ok !",
+                                    confirmButtonText: "Ok!",
                                     customClass: {
                                         confirmButton: "btn btn-primary",
                                     },
@@ -163,67 +166,147 @@ var KTSigninGeneral = (function () {
                             }
                         })
                         .catch(function (error) {
-                            let pesan;
-                            if (error.response) {
-                                const data = error.response.data;
-                                // Display error messages
-                                if (data.errors && data.errors.nim) {
-                                    // document.querySelector('#email-error').textContent = data.errors.email[0];
-                                    pesan = data.errors.nim[0];
-                                }
+                            // Handle server or network errors
+                            let pesan = "Terjadi kesalahan pada server.";
 
-                                if (data.message) {
-                                    // document.querySelector('#general-error').textContent = data.message;
-                                    pesan = data.message;
+                            if (error.response) {
+                                // If backend returns a specific error message
+                                if (error.response.data.message) {
+                                    pesan = error.response.data.message;
                                 }
-                            } else {
-                                // Handle other errors (e.g., network errors)
-                                // document.querySelector('#general-error').textContent = 'An error occurred. Please try again later.';
-                                pesan =
-                                    "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.";
                             }
+
+                            // Show error alert
                             Swal.fire({
-                                // text: "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.",
                                 text: pesan,
                                 icon: "error",
                                 buttonsStyling: false,
-                                confirmButtonText: "OK !",
+                                confirmButtonText: "OK!",
                                 customClass: {
                                     confirmButton: "btn btn-primary",
                                 },
                             });
-                            // Swal.fire({
-                            //     text: "Sorry, looks like there are some errors detected, please try again.",
-                            //     icon: "error",
-                            //     buttonsStyling: false,
-                            //     confirmButtonText: "Ok, got it!",
-                            //     customClass: {
-                            //         confirmButton: "btn btn-primary",
-                            //     },
-                            // });
                         })
                         .then(() => {
-                            // Hide loading indication
+                            // Hide loading indicator and re-enable button
                             submitButton.removeAttribute("data-kt-indicator");
-
-                            // Enable button
                             submitButton.disabled = false;
                         });
                 } else {
-                    // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    // Swal.fire({
-                    //     text: "Sorry, looks like there are some errors detected, please try again.",
-                    //     icon: "error",
-                    //     buttonsStyling: false,
-                    //     confirmButtonText: "Ok, got it!",
-                    //     customClass: {
-                    //         confirmButton: "btn btn-primary",
-                    //     },
-                    // });
+                    // If form validation fails, you can show a generic error message
+                    Swal.fire({
+                        text: "Harap isi form dengan benar sebelum melanjutkan.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok!",
+                        customClass: {
+                            confirmButton: "btn btn-primary",
+                        },
+                    });
                 }
             });
         });
     };
+
+    // var handleSubmitAjaxx = function (e) {
+    //     // Handle form submit
+    //     submitButton.addEventListener("click", function (e) {
+    //         // Prevent button default action
+    //         e.preventDefault();
+
+    //         // Validate form
+    //         validator.validate().then(function (status) {
+    //             if (status == "Valid") {
+    //                 // Show loading indication
+    //                 submitButton.setAttribute("data-kt-indicator", "on");
+
+    //                 // Disable button to avoid multiple click
+    //                 submitButton.disabled = true;
+
+    //                 // Check axios library docs: https://axios-http.com/docs/intro
+    //                 axios
+    //                     .post(
+    //                         submitButton.closest("form").getAttribute("action"),
+    //                         new FormData(form)
+    //                     )
+    //                     .then(function (response) {
+    //                         if (response) {
+    //                             form.reset();
+
+    //                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+    //                             Swal.fire({
+    //                                 text: "Anda telah berhasil login !",
+    //                                 icon: "success",
+    //                                 buttonsStyling: false,
+    //                                 confirmButtonText: "Ok !",
+    //                                 customClass: {
+    //                                     confirmButton: "btn btn-primary",
+    //                                 },
+    //                             });
+
+    //                             const redirectUrl = form.getAttribute(
+    //                                 "data-kt-redirect-url"
+    //                             );
+
+    //                             if (redirectUrl) {
+    //                                 location.href = redirectUrl;
+    //                             }
+    //                         } else {
+    //                             // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
+    //                             Swal.fire({
+    //                                 text: "Maaf, email atau kata sandi salah, silakan coba lagi.",
+    //                                 icon: "error",
+    //                                 buttonsStyling: false,
+    //                                 confirmButtonText: "Ok !",
+    //                                 customClass: {
+    //                                     confirmButton: "btn btn-primary",
+    //                                 },
+    //                             });
+    //                         }
+    //                     })
+    //                     .catch(function (error) {
+    //                         let pesan;
+    //                         if (error.response) {
+    //                             const data = error.response.data;
+    //                             // Display error messages
+    //                             if (data.errors && data.errors.nim) {
+    //                                 // document.querySelector('#email-error').textContent = data.errors.email[0];
+    //                                 pesan = data.errors.nim[0];
+    //                             }
+
+    //                             if (data.message) {
+    //                                 // document.querySelector('#general-error').textContent = data.message;
+    //                                 pesan = data.message;
+    //                             }
+    //                         } else {
+    //                             // Handle other errors (e.g., network errors)
+    //                             // document.querySelector('#general-error').textContent = 'An error occurred. Please try again later.';
+    //                             pesan =
+    //                                 "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.";
+    //                         }
+    //                         Swal.fire({
+    //                             // text: "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.",
+    //                             text: pesan,
+    //                             icon: "error",
+    //                             buttonsStyling: false,
+    //                             confirmButtonText: "OK !",
+    //                             customClass: {
+    //                                 confirmButton: "btn btn-primary",
+    //                             },
+    //                         });
+    //                     })
+    //                     .then(() => {
+    //                         // Hide loading indication
+    //                         submitButton.removeAttribute("data-kt-indicator");
+
+    //                         // Enable button
+    //                         submitButton.disabled = false;
+    //                     });
+    //             } else {
+    //             }
+    //         });
+    //     });
+    // };
 
     var isValidUrl = function (url) {
         try {

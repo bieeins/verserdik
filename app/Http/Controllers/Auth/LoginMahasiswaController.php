@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Models\Mahasiswa;
+use Illuminate\Support\Facades\Hash;
 
 class LoginMahasiswaController extends Controller
 {
@@ -13,6 +16,32 @@ class LoginMahasiswaController extends Controller
         return view('auth.mahasiswa-login');
     }
 
+    // public function login(Request $request)
+    // {
+    //     $request->validate([
+    //         'nim' => 'required|string',
+    //         'password' => 'required|string',
+    //     ]);
+
+    //     // Debug mahasiswa yang ditemukan
+    //     $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+    //     if (!$mahasiswa) {
+    //         return back()->withErrors(['message' => 'NIM tidak ditemukan.']);
+    //     }
+
+    //     // Debug password hash
+    //     dd(['input_password' => $request->password, 'hashed_password' => $mahasiswa->password]);
+
+    //     if (Auth::guard('mahasiswa')->attempt($request->only('nim', 'password'))) {
+    //         $request->session()->regenerate();
+    //         return redirect()->intended('/dashboard-mahasiswa');
+    //     }
+
+    //     return back()->withErrors([
+    //         'message' => 'NIM atau password salah.',
+    //     ]);
+    // }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -20,16 +49,50 @@ class LoginMahasiswaController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Login menggunakan guard mahasiswa
-        if (Auth::guard('mahasiswa')->attempt($request->only('nim', 'password'))) {
-            $request->session()->regenerate();
-            return redirect()->intended('/dashboard-mahasiswa');
+        $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+
+        if (!$mahasiswa) {
+            return response()->json([
+                'success' => false,
+                'message' => 'NIM tidak ditemukan.',
+            ], 401);
         }
 
-        return back()->withErrors([
-            'message' => 'NIM atau password salah.',
-        ]);
+        // if (!$mahasiswa || !Hash::check($request->password, $mahasiswa->password)) {
+        if (!Hash::check($request->password, $mahasiswa->password)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Password salah.',
+            ], 401);
+        }
+
+        // dd('ok');
+        // Login mahasiswa
+        try {
+            Auth::guard('mahasiswa')->login($mahasiswa);
+            $request->session()->regenerate();
+            return response()->json([
+                'success' => true,
+                'message' => 'Login berhasil.',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat login. Silakan coba lagi.',
+            ], 500);
+        }
+
+        // Login mahasiswa
+        // Auth::guard('mahasiswa')->login($mahasiswa);
+        // $request->session()->regenerate();
+
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'Login berhasil!',
+        //     'redirect_url' => url('/dashboard-mahasiswa'), // URL untuk redirect
+        // ]);
     }
+
 
     public function logout(Request $request)
     {
