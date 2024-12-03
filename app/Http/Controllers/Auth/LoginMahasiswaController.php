@@ -16,32 +16,6 @@ class LoginMahasiswaController extends Controller
         return view('auth.mahasiswa-login');
     }
 
-    // public function login(Request $request)
-    // {
-    //     $request->validate([
-    //         'nim' => 'required|string',
-    //         'password' => 'required|string',
-    //     ]);
-
-    //     // Debug mahasiswa yang ditemukan
-    //     $mahasiswa = Mahasiswa::where('nim', $request->nim)->first();
-    //     if (!$mahasiswa) {
-    //         return back()->withErrors(['message' => 'NIM tidak ditemukan.']);
-    //     }
-
-    //     // Debug password hash
-    //     dd(['input_password' => $request->password, 'hashed_password' => $mahasiswa->password]);
-
-    //     if (Auth::guard('mahasiswa')->attempt($request->only('nim', 'password'))) {
-    //         $request->session()->regenerate();
-    //         return redirect()->intended('/dashboard-mahasiswa');
-    //     }
-
-    //     return back()->withErrors([
-    //         'message' => 'NIM atau password salah.',
-    //     ]);
-    // }
-
     public function login(Request $request)
     {
         $request->validate([
@@ -74,6 +48,7 @@ class LoginMahasiswaController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Login berhasil.',
+                'redirect_url' => '/dashboard-mahasiswa'
             ], 200);
         } catch (\Exception $e) {
             return response()->json([

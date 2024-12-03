@@ -16,7 +16,7 @@
     <meta property="og:url" content="#" />
     <meta property="og:site_name" content="#" />
     <link rel="canonical" href="#" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="https://registrasiulang.unri.ac.id/assets/logo/LOGOUR.png" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -58,13 +58,17 @@
                 <div class="p-10 pb-0 d-flex flex-column flex-center pb-lg-10 w-100">
                     <!--begin::Image-->
                     <img class="mx-auto mb-10 theme-light-show mw-100 w-150px w-lg-300px mb-lg-20"
-                        src="assets/media/auth/agency.png" alt="" />
+                        src="https://ppg.kemdikbud.go.id/storage/2024/piloting/logo-header.svg" alt="" />
                     <img class="mx-auto mb-10 theme-dark-show mw-100 w-150px w-lg-300px mb-lg-20"
-                        src="assets/media/auth/agency-dark.png" alt="" />
+                        src="https://ppg.kemdikbud.go.id/storage/2024/piloting/logo-header.svg" alt="" />
                     <!--end::Image-->
                     <!--begin::Title-->
-                    <h1 class="text-center text-gray-800 fs-2qx fw-bold mb-7">Fast, Efficient and Productive</h1>
+                    <h1 class="text-center text-gray-800 fs-1qx fw-bold mb-7">Selamat Datang di halaman verifikasi
+                        <br />
+                        Sertifikat Pendidik Profesi Guru LPTK Universitas Riau.
+                    </h1>
                     <!--end::Title-->
+                    {{--
                     <!--begin::Text-->
                     <div class="text-center text-gray-600 fs-base fw-semibold">In this kind of post,
                         <a href="#" class="opacity-75-hover text-primary me-1">the blogger</a>introduces a person
@@ -73,7 +77,11 @@
                         <a href="#" class="opacity-75-hover text-primary me-1">the interviewee</a>and their
                         <br />work following this is a transcript of the interview.
                     </div>
-                    <!--end::Text-->
+                    <!--end::Text--> --}}
+                    <div class="text-center text-gray-600 fs-2 fw-semibold">Halaman ini disediakan untuk memudahkan
+                        Anda <br /> dalam melakukan pengecekan dan verifikasi status sertifikat pendidik yang telah
+                        diperoleh.
+                    </div>
                 </div>
                 <!--end::Content-->
             </div>
@@ -83,6 +91,7 @@
                 <!--begin::Wrapper-->
                 <div class="p-10 bg-body d-flex flex-column flex-center rounded-4 w-md-600px">
                     <!--begin::Content-->
+
                     <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
                         <!--begin::Wrapper-->
                         <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
@@ -92,6 +101,10 @@
                                 action="{{ route('mahasiswa.login') }}">
                                 <!--begin::Heading-->
                                 <div class="text-center mb-11">
+                                    <!--begin::Logo-->
+                                    <img src="https://registrasiulang.unri.ac.id/assets/logo/LOGOUR.png" alt="Logo Universitas Riau"
+                                    class="mb-5" style="width: 100px; height: auto;">
+                                    <!--end::Logo-->
                                     <!--begin::Title-->
                                     <h1 class="mb-3 text-gray-900 fw-bolder">Login</h1>
                                     <!--end::Title-->
@@ -139,9 +152,9 @@
                         <div class="d-flex flex-stack">
                             <!--begin::Links-->
                             <div class="gap-5 d-flex fw-semibold text-primary fs-base">
-                                <a href="#" target="_blank">Terms</a>
+                                <a href="#" target="_blank">&copy; Copyright 2024 TIM PPG.</a>
                                 {{-- <a href="#" target="_blank">Plans</a> --}}
-                                <a href="#" target="_blank">Contact Us</a>
+                                {{-- <a href="#" target="_blank"></a> --}}
                             </div>
                             <!--end::Links-->
                         </div>

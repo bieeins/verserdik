@@ -42,70 +42,6 @@ var KTSigninGeneral = (function () {
         });
     };
 
-    var handleSubmitDemo = function (e) {
-        // Handle form submit
-        submitButton.addEventListener("click", function (e) {
-            // Prevent button default action
-            e.preventDefault();
-
-            // Validate form
-            validator.validate().then(function (status) {
-                if (status == "Valid") {
-                    // Show loading indication
-                    submitButton.setAttribute("data-kt-indicator", "on");
-
-                    // Disable button to avoid multiple click
-                    submitButton.disabled = true;
-
-                    // Simulate ajax request
-                    setTimeout(function () {
-                        // Hide loading indication
-                        submitButton.removeAttribute("data-kt-indicator");
-
-                        // Enable button
-                        submitButton.disabled = false;
-
-                        // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                        Swal.fire({
-                            text: "You have successfully logged in!",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary",
-                            },
-                        }).then(function (result) {
-                            if (result.isConfirmed) {
-                                form.querySelector('[name="email"]').value = "";
-                                form.querySelector('[name="password"]').value =
-                                    "";
-
-                                //form.submit(); // submit form
-                                var redirectUrl = form.getAttribute(
-                                    "data-kt-redirect-url"
-                                );
-                                if (redirectUrl) {
-                                    location.href = redirectUrl;
-                                }
-                            }
-                        });
-                    }, 2000);
-                } else {
-                    // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary",
-                        },
-                    });
-                }
-            });
-        });
-    };
-
     var handleSubmitAjax = function (e) {
         // Handle form submit
         submitButton.addEventListener("click", function (e) {
@@ -128,6 +64,7 @@ var KTSigninGeneral = (function () {
                             new FormData(form)
                         )
                         .then(function (response) {
+                            console.log(response);
                             // Check if login was successful based on backend response
                             if (response.data.success) {
                                 // Reset form
@@ -207,107 +144,6 @@ var KTSigninGeneral = (function () {
             });
         });
     };
-
-    // var handleSubmitAjaxx = function (e) {
-    //     // Handle form submit
-    //     submitButton.addEventListener("click", function (e) {
-    //         // Prevent button default action
-    //         e.preventDefault();
-
-    //         // Validate form
-    //         validator.validate().then(function (status) {
-    //             if (status == "Valid") {
-    //                 // Show loading indication
-    //                 submitButton.setAttribute("data-kt-indicator", "on");
-
-    //                 // Disable button to avoid multiple click
-    //                 submitButton.disabled = true;
-
-    //                 // Check axios library docs: https://axios-http.com/docs/intro
-    //                 axios
-    //                     .post(
-    //                         submitButton.closest("form").getAttribute("action"),
-    //                         new FormData(form)
-    //                     )
-    //                     .then(function (response) {
-    //                         if (response) {
-    //                             form.reset();
-
-    //                             // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-    //                             Swal.fire({
-    //                                 text: "Anda telah berhasil login !",
-    //                                 icon: "success",
-    //                                 buttonsStyling: false,
-    //                                 confirmButtonText: "Ok !",
-    //                                 customClass: {
-    //                                     confirmButton: "btn btn-primary",
-    //                                 },
-    //                             });
-
-    //                             const redirectUrl = form.getAttribute(
-    //                                 "data-kt-redirect-url"
-    //                             );
-
-    //                             if (redirectUrl) {
-    //                                 location.href = redirectUrl;
-    //                             }
-    //                         } else {
-    //                             // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-    //                             Swal.fire({
-    //                                 text: "Maaf, email atau kata sandi salah, silakan coba lagi.",
-    //                                 icon: "error",
-    //                                 buttonsStyling: false,
-    //                                 confirmButtonText: "Ok !",
-    //                                 customClass: {
-    //                                     confirmButton: "btn btn-primary",
-    //                                 },
-    //                             });
-    //                         }
-    //                     })
-    //                     .catch(function (error) {
-    //                         let pesan;
-    //                         if (error.response) {
-    //                             const data = error.response.data;
-    //                             // Display error messages
-    //                             if (data.errors && data.errors.nim) {
-    //                                 // document.querySelector('#email-error').textContent = data.errors.email[0];
-    //                                 pesan = data.errors.nim[0];
-    //                             }
-
-    //                             if (data.message) {
-    //                                 // document.querySelector('#general-error').textContent = data.message;
-    //                                 pesan = data.message;
-    //                             }
-    //                         } else {
-    //                             // Handle other errors (e.g., network errors)
-    //                             // document.querySelector('#general-error').textContent = 'An error occurred. Please try again later.';
-    //                             pesan =
-    //                                 "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.";
-    //                         }
-    //                         Swal.fire({
-    //                             // text: "Maaf, sepertinya ada beberapa kesalahan yang terdeteksi, silakan coba lagi.",
-    //                             text: pesan,
-    //                             icon: "error",
-    //                             buttonsStyling: false,
-    //                             confirmButtonText: "OK !",
-    //                             customClass: {
-    //                                 confirmButton: "btn btn-primary",
-    //                             },
-    //                         });
-    //                     })
-    //                     .then(() => {
-    //                         // Hide loading indication
-    //                         submitButton.removeAttribute("data-kt-indicator");
-
-    //                         // Enable button
-    //                         submitButton.disabled = false;
-    //                     });
-    //             } else {
-    //             }
-    //         });
-    //     });
-    // };
-
     var isValidUrl = function (url) {
         try {
             new URL(url);
