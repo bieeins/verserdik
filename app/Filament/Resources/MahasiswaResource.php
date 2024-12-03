@@ -30,6 +30,7 @@ class MahasiswaResource extends Resource
                 Forms\Components\TextInput::make('nomorSertifikatPendidik')->label('Nomor Sertifikat Pendidik'),
                 Forms\Components\TextInput::make('tempatLahir')->label('Tempat Lahir'),
                 Forms\Components\DatePicker::make('tanggalLahir')->label('Tanggal Lahir'),
+                Forms\Components\DatePicker::make('tanggalSertifikat')->label('Tanggal Sertifikat'),
                 Forms\Components\TextInput::make('urlFoto')->label('URL Foto'),
                 Forms\Components\TextInput::make('qrCode')->label('QR Code'),
                 Forms\Components\TextInput::make('linkPreviewSertifikat')->label('Link Preview Sertifikat'),
@@ -37,6 +38,7 @@ class MahasiswaResource extends Resource
                 Forms\Components\TextInput::make('nimPddikti')->label('NIM PDDIKTI'),
                 Forms\Components\TextInput::make('namaBidangStudi')->label('Nama Bidang Studi'),
                 Forms\Components\TextInput::make('kodeBidangStudi')->label('Kode Bidang Studi'),
+                Forms\Components\TextInput::make('piloting')->label('Piloting'),
             ]);
     }
 

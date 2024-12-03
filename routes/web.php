@@ -23,6 +23,8 @@ Route::get('/logout-mahasiswa', [LoginMahasiswaController::class, 'logout'])->na
 
 Route::middleware([AuthenticateMahasiswa::class])->group(function () {
     Route::get('/dashboard-mahasiswa', [DashboardMahasiswaController::class, 'index'])->name('dashboard.mahasiswa');
+    Route::post('/konfirmasi/simpan', [DashboardMahasiswaController::class, 'simpanKonfirmasi'])->name('konfirmasi.simpan');
+    Route::get('/konfirmasi/fetch', [DashboardMahasiswaController::class, 'fetch'])->name('konfirmasi.fetch');
     // Route::get('/dashboard-mahasiswa', function () {
     //     return view('layout.dashboard-mahasiswa');
     // })->name('dashboard.mahasiswa');

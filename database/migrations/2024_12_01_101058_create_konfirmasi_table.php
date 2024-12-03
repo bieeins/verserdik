@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('konfirmasi', function (Blueprint $table) {
             $table->id();
-            $table->string('idMahasiswa', 255);
+            $table->string('nim', 255);
             $table->string('status')->default('9');
             $table->text('keterangan')->nullable();
             $table->timestamps();
