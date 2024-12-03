@@ -5280,7 +5280,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--begin::Content-->
                                                 <div class="fw-semibold">
                                                     <h4 class="text-gray-900 fw-bold">Mohon Diperhatikan !</h4>
-                                                    <div class="text-gray-700 fs-6">Jika ada kesalahan Segera
+                                                    <div class="text-gray-700 fs-6">Jika terdapat kesalahan data pada isian sertifikat pendidik (serdik) di atas, silakan klik di tombol lapor untuk melakukan perbaikan, Lalu data dukung nya silakan kirimkan ke email verifikasiserdikppg.fkip@staff.unri.ac.id.
                                                         <a href="#" class="pl-5 ml-10 btn btn-sm fw-bold btn-warning" data-bs-toggle="modal" data-bs-target="#kt_modal_lapor">LAPOR</a>
                                                     </div>
                                                 </div>
