@@ -79,7 +79,7 @@
                     </div>
                     <!--end::Text--> --}}
                     <div class="text-center text-gray-600 fs-2 fw-semibold">Halaman ini disediakan untuk memudahkan
-                        Anda <br /> dalam melakukan pengecekan dan verifikasi status sertifikat pendidik yang telah
+                        Anda <br /> dalam melakukan pengecekan dan verifikasi status sertifikat pendidik yang akan
                         diperoleh.
                     </div>
                 </div>
