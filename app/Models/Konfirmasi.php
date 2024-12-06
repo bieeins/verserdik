@@ -16,4 +16,9 @@ class Konfirmasi extends Model
         'status',
         'keterangan',
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class, 'nim', 'nim');
+    }
 }

@@ -35,4 +35,10 @@ class Mahasiswa extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public function konfirmasis()
+{
+    return $this->hasMany(Konfirmasi::class, 'nim', 'nim');
+}
+
 }
