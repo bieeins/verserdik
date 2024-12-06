@@ -29,6 +29,9 @@ class Mahasiswa extends Authenticatable
         'namaBidangStudi',
         'kodeBidangStudi',
         'password',
+        'barcode',
+        'piloting',
+        'tanggalSertifikat'
     ];
 
     // Kolom yang disembunyikan

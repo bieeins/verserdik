@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginMahasiswaController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Mahasiswa\DashboardMahasiswaController;
 use App\Http\Middleware\AuthenticateMahasiswa;
@@ -29,3 +30,5 @@ Route::middleware([AuthenticateMahasiswa::class])->group(function () {
     //     return view('layout.dashboard-mahasiswa');
     // })->name('dashboard.mahasiswa');
 });
+
+Route::post('/mahasiswa/import', [ImportController::class, 'import'])->name('mahasiswa.import');

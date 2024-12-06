@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -51,6 +52,7 @@ class MahasiswaResource extends Resource
                 Tables\Columns\TextColumn::make('nik')->label('NIK')->searchable(),
                 Tables\Columns\TextColumn::make('nim')->label('NIM')->searchable(),
                 Tables\Columns\TextColumn::make('nomorSertifikatPendidik')->label('Nomor Sertifikat'),
+                Tables\Columns\TextColumn::make('tanggalSertifikat')->label('Tanggal Sertifikat'),
                 Tables\Columns\TextColumn::make('updated_at')->label('Update'),
                 // Tables\Columns\TextColumn::make('tempatLahir')->label('Tempat Lahir'),
                 // Tables\Columns\TextColumn::make('tanggalLahir')->label('Tanggal Lahir'),
@@ -69,11 +71,28 @@ class MahasiswaResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                // Action::make('import')
+                //     ->label('Import Data')
+                //     // ->icon('heroicon-o-upload')
+                //     ->color('primary')
+                //     ->action(function () {
+                //         // Define the action to handle file upload for import
+                //         return view('filament.resources.mahasiswa.import');
+                //     }),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                ])
+
+                // ])->headerActions([
+                //     Action::make('import')
+                //         ->label('Import Mahasiswa')
+                //         // ->icon('heroicon-o-upload')
+                //         ->color('primary')
+                //         ->action(function () {
+                //             // Logic for import
+                //         })
             ]);
     }
 
