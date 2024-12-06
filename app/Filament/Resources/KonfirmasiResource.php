@@ -47,7 +47,7 @@ class KonfirmasiResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('nim')->label('NIM')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('mahasiswa.namaPeserta')->label('Nama Mahasiswa')->sortable(),
+                Tables\Columns\TextColumn::make('mahasiswa.namaPeserta')->label('Nama Mahasiswa')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->formatStateUsing(function ($state) {
