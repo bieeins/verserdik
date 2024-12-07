@@ -302,13 +302,18 @@
                     <div class="flex-wrap d-flex flex-sm-nowrap">
                         <!--begin: Pic-->
                         <div class="mb-4 me-7">
-                            <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                            <div class="symbol symbol-fixed position-relative" style="width: 120px; height: 160px;">
+                                <img src="{{ $mahasiswa->urlFoto ?: 'assets/media/avatars/default-avatar.jpg' }}"
+                                     alt="Foto Peserta"
+                                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+                            </div>
+                            {{-- <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
                                 <img src="{{ $mahasiswa->urlFoto ?: 'assets/media/avatars/default-avatar.jpg' }}"
                                     alt="Foto Peserta" />
                                 <div
                                     class="bottom-0 mb-6 border position-absolute translate-middle start-100 bg-success rounded-circle border-body h-20px w-20px">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <!--end::Pic-->
                         <!--begin::Info-->
@@ -765,35 +770,133 @@
 
                         <!--end::Col-->
                     </div>
-                    <!--begin::Notice-->
-                    <div class="p-6 border border-dashed rounded notice d-flex bg-light-warning border-warning">
-                        <!--begin::Icon-->
-                        <i class="ki-duotone ki-information fs-2tx text-danger me-4">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                            <span class="path3"></span>
-                        </i>
-                        <!--end::Icon-->
-                        <!--begin::Wrapper-->
-                        <div class="d-flex flex-stack flex-grow-1">
-                            <!--begin::Content-->
-                            <div class="fw-semibold">
-                                <h4 class="text-gray-900 fw-bold">Mohon Diperhatikan !</h4>
-                                <div class="text-gray-700 fs-6">Jika terdapat kesalahan data pada isian sertifikat
-                                    pendidik (serdik) di atas, silakan klik di tombol lapor untuk melakukan perbaikan,
-                                    Lalu data dukung nya silakan kirimkan ke email
-                                    verifikasiserdikppg.fkip@staff.unri.ac.id
-                                    <a href="#" class="pl-5 ml-10 btn btn-sm fw-bold btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#kt_modal_lapor">LAPOR</a>
-                                </div>
-                            </div>
-                            <!--end::Content-->
-                        </div>
-                        <!--end::Wrapper-->
-                    </div>
-                    <!--end::Notice-->
+
                 </div>
                 <!--end::Card body-->
+
+            </div>
+            <div class="mb-5 card mb-xl-10">
+                <div class="pb-0 p-5">
+                    <!--begin::Details-->
+                    <div class="flex-wrap d-flexx flex-sm-nowrap">
+                        <!--begin::Info-->
+                        <div class="flex-grow-1">
+                            <!--begin::Notice-->
+                            <div
+                                class="p-3 mb-5 border border-dashed rounded notice d-flex bg-light-warning border-warning">
+                                <!--begin::Icon-->
+                                <i class="ki-duotone ki-information fs-2tx text-danger me-4">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                                <!--end::Icon-->
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-stack flex-grow-1">
+                                    <!--begin::Content-->
+                                    <div class="text-justify fw-semibold ">
+                                        <h4 class="text-gray-900 fw-bold">Mohon Diperhatikan !</h4>
+                                        <div class="mr-10 text-gray-700 fs-6">Jika terdapat kesalahan data pada isian sertifikat
+                                            pendidik (serdik) di atas, silakan klik di tombol lapor untuk melakukan perbaikan,
+                                            Lalu data dukung nya silakan kirimkan ke email
+                                            <span class="text-primary">verifikasiserdikppg.fkip@staff.unri.ac.id</span>
+                                            <a href="#" class="pl-5 ml-10 btn btn-sm fw-bold btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#kt_modal_lapor">LAPOR</a>
+                                        </div>
+                                    </div>
+                                    <!--end::Content-->
+                                </div>
+                                <!--end::Wrapper-->
+                            </div>
+                            <!--end::Notice-->
+                            <!--end::Title-->
+                            <!--begin::Stats-->
+                            {{-- <div class="flex-wrap d-flex flex-stack">
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column flex-grow-1 pe-8">
+                                    <!--begin::Stats-->
+                                    <div class="flex-wrap d-flex">
+                                        <!--begin::Stat-->
+                                        <div
+                                            class="px-4 py-3 mb-3 border border-gray-300 border-dashed rounded min-w-125px me-6">
+                                            <!--begin::Number-->
+                                            <div class="d-flex align-items-center">
+                                                <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                <div class="fs-2 fw-bold" data-kt-countup="true"
+                                                    data-kt-countup-value="4500" data-kt-countup-prefix="$">0</div>
+                                            </div>
+                                            <!--end::Number-->
+                                            <!--begin::Label-->
+                                            <div class="text-gray-500 fw-semibold fs-6">Earnings
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Stat-->
+                                        <!--begin::Stat-->
+                                        <div
+                                            class="px-4 py-3 mb-3 border border-gray-300 border-dashed rounded min-w-125px me-6">
+                                            <!--begin::Number-->
+                                            <div class="d-flex align-items-center">
+                                                <i class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                <div class="fs-2 fw-bold" data-kt-countup="true"
+                                                    data-kt-countup-value="80">0</div>
+                                            </div>
+                                            <!--end::Number-->
+                                            <!--begin::Label-->
+                                            <div class="text-gray-500 fw-semibold fs-6">Projects
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Stat-->
+                                        <!--begin::Stat-->
+                                        <div
+                                            class="px-4 py-3 mb-3 border border-gray-300 border-dashed rounded min-w-125px me-6">
+                                            <!--begin::Number-->
+                                            <div class="d-flex align-items-center">
+                                                <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                <div class="fs-2 fw-bold" data-kt-countup="true"
+                                                    data-kt-countup-value="60" data-kt-countup-prefix="%">0</div>
+                                            </div>
+                                            <!--end::Number-->
+                                            <!--begin::Label-->
+                                            <div class="text-gray-500 fw-semibold fs-6">Success Rate
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Stat-->
+                                    </div>
+                                    <!--end::Stats-->
+                                </div>
+                                <!--end::Wrapper-->
+                                <!--begin::Progress-->
+                                <div class="mt-3 d-flex align-items-center w-200px w-sm-300px flex-column">
+                                    <div class="mt-auto mb-2 d-flex justify-content-between w-100">
+                                        <span class="text-gray-500 fw-semibold fs-6">Profile
+                                            Compleation</span>
+                                        <span class="fw-bold fs-6">50%</span>
+                                    </div>
+                                    <div class="mx-3 mb-3 h-5px w-100 bg-light">
+                                        <div class="rounded bg-success h-5px" role="progressbar" style="width: 50%;"
+                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <!--end::Progress-->
+                            </div> --}}
+                            <!--end::Stats-->
+                        </div>
+                        <!--end::Info-->
+                    </div>
+                    <!--end::Details-->
+                </div>
             </div>
             <!--end::details View-->
             {{--
@@ -2083,6 +2186,15 @@
             success: function (response) {
                 if (response.success && response.data) {
                     modal.find('#keterangan').val(response.data.keterangan);
+                    // Jika statusnya 1, nonaktifkan tombol simpan dan tampilkan pesan
+                    if (response.data.status == 1) {
+                        modal.find('#keterangan').prop('disabled', true); // Disable input keterangan
+                        modal.find('#kt_modal_lapor_submit').prop('disabled', true).hide(); // Sembunyikan tombol
+                        Swal.fire({
+                            text: 'Laporan Anda sudah dikonfirmasi.',
+                            icon: 'info',
+                        });
+                    }
                 }
             },
             error: function () {

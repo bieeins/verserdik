@@ -47,13 +47,13 @@ class MahasiswaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('noUkg')->label('No UKG')->searchable(),
-                Tables\Columns\TextColumn::make('namaPeserta')->label('Nama Peserta')->searchable(),
+                Tables\Columns\TextColumn::make('noUkg')->label('No UKG')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('namaPeserta')->label('Nama Peserta')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('nik')->label('NIK')->searchable(),
-                Tables\Columns\TextColumn::make('nim')->label('NIM')->searchable(),
-                Tables\Columns\TextColumn::make('nomorSertifikatPendidik')->label('Nomor Sertifikat'),
-                Tables\Columns\TextColumn::make('tanggalSertifikat')->label('Tanggal Sertifikat'),
-                Tables\Columns\TextColumn::make('updated_at')->label('Update'),
+                Tables\Columns\TextColumn::make('nim')->label('NIM')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('nomorSertifikatPendidik')->label('Nomor Sertifikat')->sortable(),
+                Tables\Columns\TextColumn::make('tanggalSertifikat')->label('Tanggal Sertifikat')->sortable(),
+                Tables\Columns\TextColumn::make('updated_at')->label('Update')->sortable(),
                 // Tables\Columns\TextColumn::make('tempatLahir')->label('Tempat Lahir'),
                 // Tables\Columns\TextColumn::make('tanggalLahir')->label('Tanggal Lahir'),
                 // Tables\Columns\TextColumn::make('urlFoto')->label('URL Foto'),

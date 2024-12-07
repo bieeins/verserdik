@@ -8,7 +8,7 @@
             <div class="pb-0 border-0 modal-header justify-content-end">
                 <!--begin::Close-->
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                    <i class="ki-duotone ki-cross fs-1">
+                    <i class="text-danger ki-duotone ki-cross fs-1">
                         <span class="path1"></span>
                         <span class="path2"></span>
                     </i>
@@ -16,9 +16,9 @@
                 <!--end::Close-->
             </div>
             <!--begin::Modal body-->
-            <div class="pt-0 pb-10 mx-5 modal-body scroll-y mx-xl-10">
+            <div class="pt-0 pb-5 mx-5 modal-body scroll-y mx-xl-10">
                 <!--begin::Heading-->
-                <div class="mb-10 text-center">
+                <div class="mb-5 text-center">
                     <!--begin::Title-->
                     <h1 class="mb-3">Lapor Kesalahan Data</h1>
                     <!--end::Title-->
@@ -29,22 +29,48 @@
                     <!--end::Description-->
                 </div>
                 <!--end::Heading-->
+
+                <div class="p-1 mb-8 border border-dashed rounded notice d-flex bg-light-warning border-warning">
+                    <!--begin::Icon-->
+                    <i class="ki-duotone ki-information fs-2tx text-danger me-4">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                        <span class="path3"></span>
+                    </i>
+                    <!--end::Icon-->
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-stack flex-grow-1">
+                        <!--begin::Content-->
+                        <div class="text-justify fw-semibold ">
+                            <h4 class="text-gray-900 fw-bold">Mohon Diperhatikan !</h4>
+                            <div class="mr-10 text-gray-700 fs-6">Silakan tulis keterangan jelas dan singkat data apa
+                                yang ingin dilakukan perbaikan,
+                                <span class="text-warning">Lalu data dukung nya silakan kirimkan ke email
+                                    verifikasiserdikppg.fkip@staff.unri.ac.id</span>
+                            </div>
+                        </div>
+                        <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+                </div>
+
                 <!--begin::Separator-->
-                <div class="mb-8 separator d-flex flex-center">
-                    <span class="px-3 text-uppercase bg-body fs-7 fw-semibold text-muted">Keterangan</span>
+                <div class="mb-5 separator d-flex flex-center">
+                    <span class="px-3 text-uppercase bg-body fs-6 fw-semibold text-muted">Keterangan</span>
                 </div>
                 <!--end::Separator-->
                 <!--begin::Textarea-->
                 <textarea id="keterangan" class="mb-5 form-control form-control-solid" rows="6"
-                    placeholder="Isikan keterangan jelas dan singkat... "></textarea>
+                    placeholder="Isikan keterangan jelas dan singkat"></textarea>
                 <!--end::Textarea-->
+
 
                 <div class="pt-10 text-center">
                     <button type="reset" id="kt_modal_lapor_cancel" class="btn btn-light me-3">Batal</button>
                     <button type="submit" id="kt_modal_lapor_submit" class="btn btn-primary">
                         <span class="indicator-label">Simpan</span>
                         <span id="indicator-progress" class="indicator-progress">Mohon Tunggu...
-                        <span class="align-middle spinner-border spinner-border-sm ms-2"></span></span>
+                            <span class="align-middle spinner-border spinner-border-sm ms-2"></span></span>
                     </button>
                 </div>
 
@@ -110,8 +136,8 @@
                                         <!--begin::Radio-->
                                         <div
                                             class="flex-shrink-0 form-check form-check-custom form-check-solid form-check-success me-6">
-                                            <input class="form-check-input" type="radio" name="plan"
-                                                checked="checked" value="startup" />
+                                            <input class="form-check-input" type="radio" name="plan" checked="checked"
+                                                value="startup" />
                                         </div>
                                         <!--end::Radio-->
                                         <!--begin::Info-->
@@ -143,8 +169,7 @@
                                         <!--begin::Radio-->
                                         <div
                                             class="flex-shrink-0 form-check form-check-custom form-check-solid form-check-success me-6">
-                                            <input class="form-check-input" type="radio" name="plan"
-                                                value="advanced" />
+                                            <input class="form-check-input" type="radio" name="plan" value="advanced" />
                                         </div>
                                         <!--end::Radio-->
                                         <!--begin::Info-->
@@ -211,8 +236,7 @@
                                         <!--begin::Radio-->
                                         <div
                                             class="flex-shrink-0 form-check form-check-custom form-check-solid form-check-success me-6">
-                                            <input class="form-check-input" type="radio" name="plan"
-                                                value="custom" />
+                                            <input class="form-check-input" type="radio" name="plan" value="custom" />
                                         </div>
                                         <!--end::Radio-->
                                         <!--begin::Info-->
@@ -635,8 +659,7 @@
                 <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid"
                     id="kt_modal_create_app_stepper">
                     <!--begin::Aside-->
-                    <div
-                        class="d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px">
+                    <div class="d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px">
                         <!--begin::Nav-->
                         <div class="stepper-nav ps-lg-10">
                             <!--begin::Step 1-->
@@ -1213,8 +1236,7 @@
                                             <!--end::Input-->
                                             <!--begin::Card logos-->
                                             <div class="position-absolute translate-middle-y top-50 end-0 me-5">
-                                                <img src="assets/media/svg/card-logos/visa.svg" alt=""
-                                                    class="h-25px" />
+                                                <img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
                                                 <img src="assets/media/svg/card-logos/mastercard.svg" alt=""
                                                     class="h-25px" />
                                                 <img src="assets/media/svg/card-logos/american-express.svg" alt=""
@@ -1283,8 +1305,7 @@
                                         <!--begin::Col-->
                                         <div class="col-md-4 fv-row">
                                             <!--begin::Label-->
-                                            <label
-                                                class="mb-2 d-flex align-items-center fs-6 fw-semibold form-label">
+                                            <label class="mb-2 d-flex align-items-center fs-6 fw-semibold form-label">
                                                 <span class="required">CVV</span>
                                                 <span class="ms-1" data-bs-toggle="tooltip"
                                                     title="Enter a card CVV code">
@@ -1299,8 +1320,8 @@
                                             <!--begin::Input wrapper-->
                                             <div class="position-relative">
                                                 <!--begin::Input-->
-                                                <input type="text" class="form-control form-control-solid"
-                                                    minlength="3" maxlength="4" placeholder="CVV" name="card_cvv" />
+                                                <input type="text" class="form-control form-control-solid" minlength="3"
+                                                    maxlength="4" placeholder="CVV" name="card_cvv" />
                                                 <!--end::Input-->
                                                 <!--begin::CVV icon-->
                                                 <div class="position-absolute translate-middle-y top-50 end-0 me-3">
@@ -1536,8 +1557,7 @@
                                 <!--end::Input group-->
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-lg btn-primary"
-                                        data-kt-element="type-next">
+                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
                                         <span class="indicator-label">Offer Details</span>
                                         <span class="indicator-progress">Please wait...
                                             <span
@@ -1653,8 +1673,7 @@
                                             <label class="form-check form-check-custom form-check-solid">
                                                 <!--begin::Input-->
                                                 <input class="form-check-input h-20px w-20px" type="checkbox"
-                                                    value="phone" checked="checked"
-                                                    name="details_notifications[]" />
+                                                    value="phone" checked="checked" name="details_notifications[]" />
                                                 <!--end::Input-->
                                                 <!--begin::Label-->
                                                 <span class="form-check-label fw-semibold">Phone</span>
@@ -1671,8 +1690,7 @@
                                 <div class="d-flex flex-stack">
                                     <button type="button" class="btn btn-lg btn-light me-3"
                                         data-kt-element="details-previous">Deal Type</button>
-                                    <button type="button" class="btn btn-lg btn-primary"
-                                        data-kt-element="details-next">
+                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="details-next">
                                         <span class="indicator-label">Financing</span>
                                         <span class="indicator-progress">Please wait...
                                             <span
@@ -1719,8 +1737,7 @@
                                     <!--begin::Dialer-->
                                     <div class="position-relative w-lg-250px" id="kt_modal_finance_setup"
                                         data-kt-dialer="true" data-kt-dialer-min="50" data-kt-dialer-max="50000"
-                                        data-kt-dialer-step="100" data-kt-dialer-prefix="$"
-                                        data-kt-dialer-decimals="2">
+                                        data-kt-dialer-step="100" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
                                         <!--begin::Decrease control-->
                                         <button type="button"
                                             class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0"
@@ -1767,8 +1784,8 @@
                                                 <!--begin::Radio-->
                                                 <span
                                                     class="mt-1 form-check form-check-custom form-check-solid form-check-sm align-items-start">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="finance_usage" value="1" checked="checked" />
+                                                    <input class="form-check-input" type="radio" name="finance_usage"
+                                                        value="1" checked="checked" />
                                                 </span>
                                                 <!--end::Radio-->
                                                 <!--begin::Info-->
@@ -1793,8 +1810,8 @@
                                                 <!--begin::Radio-->
                                                 <span
                                                     class="mt-1 form-check form-check-custom form-check-solid form-check-sm align-items-start">
-                                                    <input class="form-check-input" type="radio"
-                                                        name="finance_usage" value="2" />
+                                                    <input class="form-check-input" type="radio" name="finance_usage"
+                                                        value="2" />
                                                 </span>
                                                 <!--end::Radio-->
                                                 <!--begin::Info-->
@@ -1840,8 +1857,7 @@
                                 <div class="d-flex flex-stack">
                                     <button type="button" class="btn btn-lg btn-light me-3"
                                         data-kt-element="finance-previous">Project Settings</button>
-                                    <button type="button" class="btn btn-lg btn-primary"
-                                        data-kt-element="finance-next">
+                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="finance-next">
                                         <span class="indicator-label">Build Team</span>
                                         <span class="indicator-progress">Please wait...
                                             <span
@@ -1938,8 +1954,8 @@
                         </i>
                         <!--end::Icon-->
                         <!--begin::Input-->
-                        <input type="text" class="form-control form-control-lg form-control-solid px-15"
-                            name="search" value="" placeholder="Search by username, full name or email..."
+                        <input type="text" class="form-control form-control-lg form-control-solid px-15" name="search"
+                            value="" placeholder="Search by username, full name or email..."
                             data-kt-search-element="input" />
                         <!--end::Input-->
                         <!--begin::Spinner-->
@@ -2075,8 +2091,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Emma
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Emma
                                                 Smith</a>
                                             <div class="fw-semibold text-muted">smith@kpmg.com</div>
                                         </div>
@@ -2111,8 +2126,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <span
-                                                class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
+                                            <span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -2158,8 +2172,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Max
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Max
                                                 Smith</a>
                                             <div class="fw-semibold text-muted">max@kt.com</div>
                                         </div>
@@ -2199,8 +2212,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Sean
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Sean
                                                 Bean</a>
                                             <div class="fw-semibold text-muted">sean@dellito.com</div>
                                         </div>
@@ -2240,8 +2252,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Brian
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Brian
                                                 Cox</a>
                                             <div class="fw-semibold text-muted">brian@exchange.com</div>
                                         </div>
@@ -2359,8 +2370,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <span
-                                                class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+                                            <span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -2407,8 +2417,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Neil
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Neil
                                                 Owen</a>
                                             <div class="fw-semibold text-muted">owen.neil@gmail.com</div>
                                         </div>
@@ -2448,8 +2457,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Dan
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Dan
                                                 Wilson</a>
                                             <div class="fw-semibold text-muted">dam@consilting.com</div>
                                         </div>
@@ -2484,14 +2492,12 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <span
-                                                class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
+                                            <span class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Emma
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Emma
                                                 Bold</a>
                                             <div class="fw-semibold text-muted">emma@intenso.com</div>
                                         </div>
@@ -2531,8 +2537,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Ana
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Ana
                                                 Crown</a>
                                             <div class="fw-semibold text-muted">ana.cf@limtel.com</div>
                                         </div>
@@ -2613,8 +2618,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">John
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">John
                                                 Miller</a>
                                             <div class="fw-semibold text-muted">miller@mapple.com</div>
                                         </div>
@@ -2655,8 +2659,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Lucy
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Lucy
                                                 Kunic</a>
                                             <div class="fw-semibold text-muted">lucy.m@fentech.com</div>
                                         </div>
@@ -2696,8 +2699,7 @@
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#"
-                                                class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Ethan
+                                            <a href="#" class="mb-2 text-gray-900 fs-5 fw-bold text-hover-primary">Ethan
                                                 Wilder</a>
                                             <div class="fw-semibold text-muted">ethan@loop.com.au</div>
                                         </div>
@@ -2732,8 +2734,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <span
-                                                class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+                                            <span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->

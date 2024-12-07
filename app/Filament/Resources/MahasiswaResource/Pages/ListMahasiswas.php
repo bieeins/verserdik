@@ -6,12 +6,14 @@ use App\Filament\Resources\MahasiswaResource;
 use App\Imports\MahasiswaImport;
 use Filament\Actions;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Placeholder;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Tables\Actions\Action;
 use Filament\Forms\Form;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Modal\Modal;
+use Filament\Forms\Components\View;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
@@ -39,6 +41,8 @@ class ListMahasiswas extends ListRecords
                         ->directory('temp-uploads') // Tempat penyimpanan file sementara
                         ->maxSize(10240) // 10MB
                         ->required(),
+                    // Menambahkan tautan unduh file contoh
+                    View::make('filament.components.download-example'),
                 ])
                 ->action(function (array $data) {
                     Log::info('Data yang diterima: ', $data); // Log data yang diterima

@@ -51,7 +51,6 @@ class KonfirmasiResource extends Resource
                 Tables\Columns\TextColumn::make('status')
                     ->label('Status')
                     ->formatStateUsing(function ($state) {
-                        // Casting string ke integer
                         $state = (int) $state;
 
                         return match ($state) {
@@ -61,10 +60,19 @@ class KonfirmasiResource extends Resource
                             default => 'Tidak Diketahui',
                         };
                     })
+                    ->badge()
+                    ->color(function ($state) {
+                        return match ((int) $state) {
+                            9 => 'warning', // Warna kuning
+                            1 => 'success', // Warna hijau
+                            0 => 'danger',  // Warna merah
+                            default => 'secondary', // Warna default
+                        };
+                    })
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('keterangan')->label('Keterangan'),
-                Tables\Columns\TextColumn::make('updated_at')->label('Update'),
+                Tables\Columns\TextColumn::make('updated_at')->label('Update')->sortable(),
             ])
             ->defaultSort('id')
             ->filters([

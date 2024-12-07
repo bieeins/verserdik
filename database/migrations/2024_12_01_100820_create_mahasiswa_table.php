@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('tanggalLahir', 255)->nullable();
             $table->string('urlFoto', 500)->nullable();
             $table->string('qrCode', 255)->nullable();
+            $table->string('barcode', 255)->nullable();
             $table->string('linkPreviewSertifikat', 255)->nullable();
             $table->string('tanggalSertifikat', 255)->nullable();
             $table->string('nikPddikti', 255)->nullable();

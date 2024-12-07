@@ -70,7 +70,7 @@ data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="fa
                     </i>
                 </div>
                 <!--begin::Menu-->
-                <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
+                {{-- <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
                     data-kt-menu="true" id="kt_menu_notifications">
                     <!--begin::Heading-->
                     <div class="d-flex flex-column bgi-no-repeat rounded-top"
@@ -81,7 +81,7 @@ data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="fa
                         </h3>
                         <!--end::Title-->
                         <!--begin::Tabs-->
-                        {{-- <ul
+                        <ul
                             class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
                             <li class="nav-item">
                                 <a class="pb-4 text-white opacity-75 nav-link opacity-state-100"
@@ -95,7 +95,7 @@ data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="fa
                                 <a class="pb-4 text-white opacity-75 nav-link opacity-state-100"
                                     data-bs-toggle="tab" href="#kt_topbar_notifications_3">Logs</a>
                             </li>
-                        </ul> --}}
+                        </ul>
                         <!--end::Tabs-->
                     </div>
                     <!--end::Heading-->
@@ -642,7 +642,7 @@ data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="fa
                         <!--end::Tab panel-->
                     </div>
                     <!--end::Tab content-->
-                </div>
+                </div> --}}
                 <!--end::Menu-->
                 <!--end::Menu wrapper-->
             </div>

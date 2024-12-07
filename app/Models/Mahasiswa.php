@@ -23,15 +23,15 @@ class Mahasiswa extends Authenticatable
         'tanggalLahir',
         'urlFoto',
         'qrCode',
+        'barcode',
         'linkPreviewSertifikat',
+        'tanggalSertifikat',
         'nikPddikti',
         'nimPddikti',
         'namaBidangStudi',
         'kodeBidangStudi',
         'password',
-        'barcode',
         'piloting',
-        'tanggalSertifikat'
     ];
 
     // Kolom yang disembunyikan
