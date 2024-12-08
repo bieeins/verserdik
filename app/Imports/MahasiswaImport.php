@@ -12,9 +12,9 @@ class MahasiswaImport implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
-        if($row['no_ukg']){
-            Log::info('Data Row: ', $row);
-        }
+        // if($row['no_ukg']){
+        //     Log::info('Data Row: ', $row);
+        // }
         // // Membuat password berdasarkan NIM dan tahun lahir
         // $password = substr($row['nim'], 0, 6) . substr($row['tanggal_lahir'], 0, 4); // Contoh kombinasi NIM dan tahun lahir
         // // Ambil 4 digit tahun dari tanggal lahir

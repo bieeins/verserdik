@@ -13,6 +13,10 @@ class ImportController extends Controller
         // Validasi tipe file
         $request->validate([
             'file' => 'required|file|mimes:xlsx,xls,csv|max:10240', // Maksimal ukuran 10MB
+        ], [
+            'file.required' => 'NIM wajib diisi.',
+            'file.mimes' => 'File harus berupa excel, csv.',
+            'file.max' => 'File harus berupa maksimal 10 MB',
         ]);
 
         if ($request->hasFile('file')) {

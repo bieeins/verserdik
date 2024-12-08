@@ -40,12 +40,18 @@ class ListMahasiswas extends ListRecords
                         ])
                         ->directory('temp-uploads') // Tempat penyimpanan file sementara
                         ->maxSize(10240) // 10MB
-                        ->required(),
+                        ->required()
+                        ->validationMessages([
+                            'required' => 'Anda harus memilih file Excel untuk diunggah.',
+                            'mimes' => 'File yang diunggah harus berupa file Excel (.xls atau .xlsx).',
+                            'max' => 'Ukuran file tidak boleh lebih dari 10MB.',
+                        ]),
+                    View::make('filament.components.import-notice'),
                     // Menambahkan tautan unduh file contoh
                     View::make('filament.components.download-example'),
                 ])
                 ->action(function (array $data) {
-                    Log::info('Data yang diterima: ', $data); // Log data yang diterima
+                    // Log::info('Data yang diterima: ', $data); // Log data yang diterima
 
                     // Mengecek apakah ada file yang diterima
                     $uploadedFile = $data['file'] ?? null;
@@ -53,7 +59,28 @@ class ListMahasiswas extends ListRecords
                     if ($uploadedFile) {
                         // Mendapatkan path file yang diterima
                         $filePath = Storage::disk('public')->path($uploadedFile); // Pastikan menggunakan disk 'public'
-                        Log::info('File yang diterima: ', ['path' => $filePath]);
+                        // Log::info('File yang diterima: ', ['path' => $filePath]);
+
+                        $rows = Excel::toCollection(null, $filePath)[0] ?? [];
+                        Log::info('File yang diterima memiliki row: ', ['Rows' => count($rows)]);
+
+                        if (count($rows) > 500) {
+                            if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
+                                // Log::info('Menghapus file: ', ['path' => $filePath]);
+
+                                // Menghapus file
+                                Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
+                                Log::info('File berhasil dihapus: ', ['path' => $filePath]);
+                            } else {
+                                Log::warning('File tidak ditemukan untuk dihapus: ', ['path' => $filePath]);
+                            }
+                            Notification::make()
+                                ->title('Peringatan')
+                                ->body('<div class="text-warning fw-bold"><i class="heroicon-o-information-circle"></i> File yang diunggah memiliki <strong>' . count($rows) . ' baris.</strong> Harap periksa file Anda dan coba lagi.</div>')
+                                ->danger()
+                                ->send();
+                            return;
+                        }
 
                         // Memastikan file ada di folder public/temp-uploads
                         if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
@@ -64,7 +91,7 @@ class ListMahasiswas extends ListRecords
 
                                 // Menghapus file setelah proses impor selesai
                                 if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
-                                    Log::info('Menghapus file: ', ['path' => $filePath]);
+                                    // Log::info('Menghapus file: ', ['path' => $filePath]);
 
                                     // Menghapus file
                                     Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
