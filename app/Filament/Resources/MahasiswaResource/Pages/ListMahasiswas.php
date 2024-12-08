@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\Livewire;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class ListMahasiswas extends ListRecords
 {
@@ -64,23 +65,23 @@ class ListMahasiswas extends ListRecords
                         $rows = Excel::toCollection(null, $filePath)[0] ?? [];
                         Log::info('File yang diterima memiliki row: ', ['Rows' => count($rows)]);
 
-                        if (count($rows) > 500) {
-                            if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
-                                // Log::info('Menghapus file: ', ['path' => $filePath]);
+                        // if (count($rows) > 500) {
+                        //     if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
+                        //         // Log::info('Menghapus file: ', ['path' => $filePath]);
 
-                                // Menghapus file
-                                Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
-                                Log::info('File berhasil dihapus: ', ['path' => $filePath]);
-                            } else {
-                                Log::warning('File tidak ditemukan untuk dihapus: ', ['path' => $filePath]);
-                            }
-                            Notification::make()
-                                ->title('Peringatan')
-                                ->body('<div class="text-warning fw-bold"><i class="heroicon-o-information-circle"></i> File yang diunggah memiliki <strong>' . count($rows) . ' baris.</strong> Harap periksa file Anda dan coba lagi.</div>')
-                                ->danger()
-                                ->send();
-                            return;
-                        }
+                        //         // Menghapus file
+                        //         Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
+                        //         Log::info('File berhasil dihapus: ', ['path' => $filePath]);
+                        //     } else {
+                        //         Log::warning('File tidak ditemukan untuk dihapus: ', ['path' => $filePath]);
+                        //     }
+                        //     Notification::make()
+                        //         ->title('Peringatan')
+                        //         ->body('<div class="text-warning fw-bold"><i class="heroicon-o-information-circle"></i> File yang diunggah memiliki <strong>' . count($rows) . ' baris.</strong> Harap periksa file Anda dan coba lagi.</div>')
+                        //         ->danger()
+                        //         ->send();
+                        //     return;
+                        // }
 
                         // Memastikan file ada di folder public/temp-uploads
                         if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
@@ -104,6 +105,18 @@ class ListMahasiswas extends ListRecords
                                     ->title('Sukses')
                                     ->body('Data mahasiswa berhasil diimpor.')
                                     ->success()
+                                    ->send();
+                            } catch (ValidationException $e) {
+                                // Menangani validasi error pada Excel
+                                $failures = $e->failures();
+                                foreach ($failures as $failure) {
+                                    Log::error("Kesalahan pada baris {$failure->row()}: " . implode(', ', $failure->errors()));
+                                }
+
+                                Notification::make()
+                                    ->title('Gagal')
+                                    ->body('Terjadi kesalahan validasi data pada file Excel. Silakan periksa dan coba lagi.')
+                                    ->danger()
                                     ->send();
                             } catch (\Exception $e) {
                                 Notification::make()
