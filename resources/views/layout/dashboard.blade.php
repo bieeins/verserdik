@@ -716,7 +716,7 @@
                     <!--begin::Input group-->
                     <div class="row mb-7">
                         <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Nomor Sertifika Pendidik</label>
+                        <label class="col-lg-4 fw-semibold text-muted">Nomor Sertifikat Pendidik</label>
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8">
