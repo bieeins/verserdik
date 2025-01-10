@@ -65,9 +65,7 @@ class MahasiswaResource extends Resource
                 // Tables\Columns\TextColumn::make('kodeBidangStudi')->label('Kode Bidang Studi'),
             ])
             ->defaultSort('id')
-            ->filters([
-                //
-            ])
+            ->filters(self::getFilter())
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
@@ -94,6 +92,26 @@ class MahasiswaResource extends Resource
                 //             // Logic for import
                 //         })
             ]);
+    }
+
+    public static function getFilter()
+    {
+        return [
+            Tables\Filters\SelectFilter::make('piloting')
+                ->label('Piloting')
+                ->options(
+                    [
+                        '1' => 'Piloting 1',
+                        '2' => 'Piloting 2',
+                        '3' => 'Piloting 3',
+                    ]
+                )
+                ->searchable()
+                ->placeholder('Pilih Piloting')
+                ->attribute('piloting'),
+
+
+        ];
     }
 
     public static function getRelations(): array

@@ -20,6 +20,7 @@ class KonfirmasiResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
     public static function form(Form $form): Form
     {
         return $form
@@ -71,13 +72,12 @@ class KonfirmasiResource extends Resource
                     })
                     ->sortable()
                     ->searchable(),
+                // Tables\Columns\TextColumn::make('mahasiswa.piloting')->label('Piloting')->sortable(),
                 Tables\Columns\TextColumn::make('keterangan')->label('Keterangan'),
                 Tables\Columns\TextColumn::make('updated_at')->label('Update')->sortable(),
             ])
             ->defaultSort('id')
-            ->filters([
-                //
-            ])
+            ->filters(self::getFilter())
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -86,6 +86,46 @@ class KonfirmasiResource extends Resource
                     Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
+    }
+
+    public static function getFilter()
+    {
+        return [
+            Tables\Filters\SelectFilter::make('mahasiswa.piloting')
+                ->label('Piloting')
+                ->options([
+                    '1' => 'Piloting 1',
+                    '2' => 'Piloting 2',
+                    '3' => 'Piloting 3',
+                ])
+                ->searchable()
+                ->default('1')
+                ->placeholder('Pilih Piloting')
+                ->attribute('mahasiswa.piloting')
+                ->query(function ($query, $data) {
+
+                        $query->whereHas('mahasiswa', function ($q) use ($data) {
+                            $q->where('piloting', $data); // Filter berdasarkan nilai piloting
+                        });
+
+                }),
+
+
+            Tables\Filters\SelectFilter::make('status')
+                ->label('Status')
+                ->options(
+                    [
+                        9 => 'Belum Dikonfirmasi',
+                        1 => 'Sudah Dikonfirmasi',
+                        0 => 'Ditolak',
+                        // default => 'Tidak Diketahui',
+                    ]
+                )
+                ->default('9')
+                ->searchable()
+                ->placeholder('Pilih Status')
+                ->attribute('status'),
+        ];
     }
 
     public static function getRelations(): array

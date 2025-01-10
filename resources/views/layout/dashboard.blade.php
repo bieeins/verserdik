@@ -761,9 +761,14 @@
                             @if($mahasiswa->piloting == 1)
                             <a target="_blank" href="assets/files/pil1.pdf" class="btn btn-sm btn-secondary">Lihat
                                 SK</a>
-                            @else
+                            @elseif ($mahasiswa->piloting == 2)
                             <a target="_blank" href="assets/files/pil2.pdf" class="btn btn-sm btn-secondary">Lihat
                                 SK</a>
+                            @elseif ($mahasiswa->piloting == 3)
+                            <a target="_blank" href="assets/files/pil3.pdf" class="btn btn-sm btn-secondary">Lihat
+                                SK</a>
+                            @else
+                            <a target="" href="#" class="btn btn-sm btn-secondary">SK BELUM TERBIT</a>
                             @endif
                         </div>
 
