@@ -25,6 +25,8 @@ class Mahasiswa extends Authenticatable
         'qrCode',
         'barcode',
         'linkPreviewSertifikat',
+        'linkFinalSertifikat',
+        'nomorHp',
         'tanggalSertifikat',
         'nikPddikti',
         'nimPddikti',

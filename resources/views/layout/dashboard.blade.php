@@ -681,7 +681,7 @@
                     </div>
                     <!--end::Input group-->
                     <!--begin::Input group-->
-                    <div class="mb-10 row">
+                    <div class="mb-7 row">
                         <!--begin::Label-->
                         <label class="col-lg-4 fw-semibold text-muted">Program Studi</label>
                         <!--begin::Label-->
@@ -707,7 +707,7 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8 d-flex align-items-center">
-                            <span class="text-gray-800 fw-bold fs-6 me-2">{{ $mahasiswa->nik }}</span>
+                            <span class="text-gray-800 fw-bold fs-6 me-2x">{{ $mahasiswa->nik }}</span>
                             {{-- <span class="badge badge-success">Verified</span> --}}
                         </div>
                         <!--end::Col-->
@@ -720,14 +720,30 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8">
-                            <a target="_blank" href="{{ $mahasiswa->linkPreviewSertifikat}}"
+                            <span target="_blank" href="{{ $mahasiswa->linkPreviewSertifikat}}"
                                 class="text-gray-800 fw-semibold fs-6 text-hover-primary">{{
-                                $mahasiswa->nomorSertifikatPendidik }}</a>
+                                $mahasiswa->nomorSertifikatPendidik }}</span>
                         </div>
 
                         <!--end::Col-->
                     </div>
                     <!--end::Input group-->
+                    @if($mahasiswa->linkFinalSertifikat)
+                    <!--begin::Input group-->
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Download Sertifikat</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <a target="_blank" href="{{ $mahasiswa->linkFinalSertifikat}}"
+                                class="text-gray-800x fw-semibold fs-6 text-hover-primaryx btn btn-success btn-sm">Download Sertifikat</a>
+                        </div>
+
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+                    @endif
                     <!--begin::Input group-->
                     <div class="row mb-7">
                         <!--begin::Label-->

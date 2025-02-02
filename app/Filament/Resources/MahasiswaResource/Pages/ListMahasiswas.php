@@ -4,6 +4,7 @@ namespace App\Filament\Resources\MahasiswaResource\Pages;
 
 use App\Filament\Resources\MahasiswaResource;
 use App\Imports\MahasiswaImport;
+use App\Imports\SertifikatImport;
 use Filament\Actions;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Placeholder;
@@ -147,7 +148,7 @@ class ListMahasiswas extends ListRecords
                             ->danger()
                             ->send();
                     }
-                })
+                }),
             // ->action(function (array $data) {
             //     Log::info('Data yang diterima:', ['data' => $data]);
 
@@ -236,6 +237,126 @@ class ListMahasiswas extends ListRecords
             //         // Pastikan Anda menambahkan logic untuk memproses file di sini
             //         Livewire::emit('openImportModal');
             //     }),
+
+            Actions\Action::make('import-sertifikat')
+                ->label('Import Sertifikat')
+                ->icon('heroicon-o-arrow-up')
+                ->form([
+                    FileUpload::make('file')
+                        ->label('Pilih File Excel')
+                        ->acceptedFileTypes([
+                            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                            'application/vnd.ms-excel',
+                        ])
+                        ->directory('temp-uploads') // Tempat penyimpanan file sementara
+                        ->maxSize(10240) // 10MB
+                        ->required()
+                        ->validationMessages([
+                            'required' => 'Anda harus memilih file Excel untuk diunggah.',
+                            'mimes' => 'File yang diunggah harus berupa file Excel (.xls atau .xlsx).',
+                            'max' => 'Ukuran file tidak boleh lebih dari 10MB.',
+                        ]),
+                    // View::make('filament.components.import2-notice'),
+                    // Menambahkan tautan unduh file contoh
+                    // View::make('filament.components.download-example'),
+                ])
+                ->action(function (array $data) {
+                    // Log::info('Data yang diterima: ', $data); // Log data yang diterima
+
+                    // Mengecek apakah ada file yang diterima
+                    $uploadedFile = $data['file'] ?? null;
+
+                    if ($uploadedFile) {
+                        // Mendapatkan path file yang diterima
+                        $filePath = Storage::disk('public')->path($uploadedFile); // Pastikan menggunakan disk 'public'
+                        // Log::info('File yang diterima: ', ['path' => $filePath]);
+
+                        $rows = Excel::toCollection(null, $filePath)[0] ?? [];
+                        Log::info('File yang diterima memiliki row: ', ['Rows' => count($rows)]);
+
+                        // if (count($rows) > 500) {
+                        //     if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
+                        //         // Log::info('Menghapus file: ', ['path' => $filePath]);
+
+                        //         // Menghapus file
+                        //         Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
+                        //         Log::info('File berhasil dihapus: ', ['path' => $filePath]);
+                        //     } else {
+                        //         Log::warning('File tidak ditemukan untuk dihapus: ', ['path' => $filePath]);
+                        //     }
+                        //     Notification::make()
+                        //         ->title('Peringatan')
+                        //         ->body('<div class="text-warning fw-bold"><i class="heroicon-o-information-circle"></i> File yang diunggah memiliki <strong>' . count($rows) . ' baris.</strong> Harap periksa file Anda dan coba lagi.</div>')
+                        //         ->danger()
+                        //         ->send();
+                        //     return;
+                        // }
+
+                        // Memastikan file ada di folder public/temp-uploads
+                        if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
+                            // File ditemukan, lanjutkan dengan proses file, misalnya membaca Excel
+                            try {
+                                // Menggunakan Laravel Excel untuk mengimpor file
+                                Excel::import(new SertifikatImport, $filePath);
+
+                                // Menghapus file setelah proses impor selesai
+                                if (Storage::disk('public')->exists('temp-uploads/' . basename($uploadedFile))) {
+                                    // Log::info('Menghapus file: ', ['path' => $filePath]);
+
+                                    // Menghapus file
+                                    Storage::disk('public')->delete('temp-uploads/' . basename($uploadedFile));
+                                    Log::info('File berhasil dihapus: ', ['path' => $filePath]);
+                                } else {
+                                    Log::warning('File tidak ditemukan untuk dihapus: ', ['path' => $filePath]);
+                                }
+
+                                Notification::make()
+                                    ->title('Sukses')
+                                    ->body('Data Sertifikat berhasil diimpor.')
+                                    ->success()
+                                    ->send();
+                            } catch (ValidationException $e) {
+                                // Menangani validasi error pada Excel
+                                $failures = $e->failures();
+                                foreach ($failures as $failure) {
+                                    Log::error("Kesalahan pada baris {$failure->row()}: " . implode(', ', $failure->errors()));
+                                }
+
+                                Notification::make()
+                                    ->title('Gagal')
+                                    ->body('Terjadi kesalahan validasi data pada file Excel. Silakan periksa dan coba lagi.')
+                                    ->danger()
+                                    ->send();
+                            } catch (\Exception $e) {
+                                Notification::make()
+                                    ->title('Gagal')
+                                    ->body('Terjadi kesalahan saat memproses file: ' . $e->getMessage())
+                                    ->danger()
+                                    ->send();
+                            } finally {
+                                Storage::delete($filePath);
+                            }
+                            //         }
+                        } else {
+                            Log::error('File tidak ditemukan atau tidak valid.');
+
+                            Notification::make()
+                                ->title('Gagal')
+                                ->body('File tidak valid atau tidak dapat ditemukan.')
+                                ->danger()
+                                ->send();
+                        }
+                    } else {
+                        // Log jika file tidak diterima
+                        Log::error('Tidak ada file yang diunggah.');
+
+                        Notification::make()
+                            ->title('Gagal')
+                            ->body('Tidak ada file yang diunggah atau file tidak valid.')
+                            ->danger()
+                            ->send();
+                    }
+                }),
         ];
     }
 }
