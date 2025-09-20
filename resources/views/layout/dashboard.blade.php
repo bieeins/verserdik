@@ -3,20 +3,20 @@
 @section('judul-header', 'Verifikasi Data')
 
 @section('content')
-<div class="d-flex flex-column flex-column-fluid">
-    <!--begin::Toolbar-->
-    <div id="kt_app_toolbar" class="py-3 app-toolbar py-lg-6">
-        <!--begin::Toolbar container-->
-        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
-            <!--begin::Page title-->
-            <div class="flex-wrap page-title d-flex flex-column justify-content-center me-3">
-                <!--begin::Title-->
-                <h1 class="my-0 text-gray-900 page-heading d-flex fw-bold fs-3 flex-column justify-content-center">
-                    Verifikasi Data Sertifikat Pendidik</h1>
-                <!--end::Title-->
+    <div class="d-flex flex-column flex-column-fluid">
+        <!--begin::Toolbar-->
+        <div id="kt_app_toolbar" class="py-3 app-toolbar py-lg-6">
+            <!--begin::Toolbar container-->
+            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+                <!--begin::Page title-->
+                <div class="flex-wrap page-title d-flex flex-column justify-content-center me-3">
+                    <!--begin::Title-->
+                    <h1 class="my-0 text-gray-900 page-heading d-flex fw-bold fs-3 flex-column justify-content-center">
+                        Verifikasi Data Sertifikat Pendidik</h1>
+                    <!--end::Title-->
 
-                <!--begin::Breadcrumb-->
-                {{-- <ul class="pt-1 my-0 breadcrumb breadcrumb-separatorless fw-semibold fs-7">
+                    <!--begin::Breadcrumb-->
+                    {{-- <ul class="pt-1 my-0 breadcrumb breadcrumb-separatorless fw-semibold fs-7">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         <a href="index.html" class="text-muted text-hover-primary">Dashboard</a>
@@ -31,11 +31,11 @@
                     <li class="breadcrumb-item text-muted">Mahasiswa</li>
                     <!--end::Item-->
                 </ul> --}}
-                <!--end::Breadcrumb-->
-            </div>
-            <!--end::Page title-->
-            <!--begin::Actions-->
-            {{-- <div class="gap-2 d-flex align-items-center gap-lg-3">
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page title-->
+                <!--begin::Actions-->
+                {{-- <div class="gap-2 d-flex align-items-center gap-lg-3">
                 <!--begin::Filter menu-->
                 <div class="m-0">
                     <!--begin::Menu toggle-->
@@ -138,76 +138,77 @@
                     data-bs-target="#kt_modal_create_app">Create</a>
                 <!--end::Primary button-->
             </div> --}}
-            <!--end::Actions-->
+                <!--end::Actions-->
+            </div>
+            <!--end::Toolbar container-->
         </div>
-        <!--end::Toolbar container-->
-    </div>
-    <!--end::Toolbar-->
-    <!--begin::Content-->
-    <div id="kt_app_content" class="app-content flex-column-fluid">
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-xxl">
-            <!--begin::Navbar-->
-            <div class="mb-5 card mb-xl-10">
-                <div class="pb-0 card-body pt-9">
-                    <!--begin::Details-->
-                    <div class="flex-wrap d-flex flex-sm-nowrap">
-                        <!--begin::Info-->
-                        <div class="flex-grow-1">
-                            <!--begin::Notice-->
-                            <div
-                                class="p-6 mb-5 border border-dashed rounded notice d-flex bg-light-warning border-warning">
-                                <!--begin::Icon-->
-                                <i class="ki-duotone ki-information fs-2tx text-danger me-4">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                                <!--end::Icon-->
-                                <!--begin::Wrapper-->
-                                <div class="d-flex flex-stack flex-grow-1">
-                                    <!--begin::Content-->
-                                    <div class="text-justify fw-semibold">
-                                        <h4 class="text-gray-900 fw-bold">Mohon Perhatian dan Dibaca !</h4>
-                                        <div class="text-gray-700 fs-6">
-                                            Pada halaman Verifikasi Data Sertifikat Pendidik (Serdik) PPG, pastikan
-                                            hal-hal berikut ini sudah diperiksa untuk menjamin keabsahan dan kelengkapan
-                                            data:
-                                            <ol>
-                                                <li><strong>Nomor Induk Kependudukan (NIK)</strong>: Periksa NIK yang
-                                                    terdaftar pada sertifikat PPG. Pastikan NIK yang dimasukkan pada
-                                                    halaman verifikasi sesuai dengan yang tercantum pada Kartu Tanda
-                                                    Penduduk (KTP) Anda.</li>
-                                                <li><strong>Nama Lengkap</strong>: Pastikan Nama Lengkap yang terdaftar
-                                                    pada sertifikat PPG sesuai dengan data pribadi Anda yang ada di
-                                                    dokumen resmi seperti KTP dan data akademik (Ijazah S1). Nama yang
-                                                    salah atau tidak sesuai dapat menyebabkan masalah dalam validasi
-                                                    data.</li>
-                                                <li><strong>Tempat Tanggal Lahir</strong>: Pastikan Tempat Tanggal Lahir
-                                                    yang terdaftar pada sertifikat PPG sesuai dengan data pribadi Anda
-                                                    yang ada di dokumen resmi seperti KTP dan data akademik (Ijazah S1).
-                                                </li>
-                                                <li><strong>NIM (Nomor Induk Mahasiswa)</strong>: Pastikan NIM yang
-                                                    terdaftar di sertifikat sesuai dengan yang ada pada dokumen resmi
-                                                    KTM yang diterbitkan oleh LPK Universitas Riau.</li>
-                                                <li><strong>Tanggal Penerbitan Sertifikat</strong>: {{
-                                                    \Carbon\Carbon::parse($mahasiswa->tanggalSertifikat)->translatedFormat('d
-                                                    F Y') }}.</li>
-                                                <li><strong>Pas Foto</strong>: Pastikan pas foto sudah sesuai dengan
-                                                    ketentuan (tidak boleh foto Selfie) silakan <a target='_blank'
-                                                        href='assets/files/Ketentuan-Foto-Serdik.pdf'>cek disini.</a>
-                                                </li>
-                                            </ol>
+        <!--end::Toolbar-->
+        <!--begin::Content-->
+        <div id="kt_app_content" class="app-content flex-column-fluid">
+            <!--begin::Content container-->
+            <div id="kt_app_content_container" class="app-container container-xxl">
+                <!--begin::Navbar-->
+                <div class="mb-5 card mb-xl-10">
+                    <div class="pb-0 card-body pt-9">
+                        <!--begin::Details-->
+                        <div class="flex-wrap d-flex flex-sm-nowrap">
+                            <!--begin::Info-->
+                            <div class="flex-grow-1">
+                                <!--begin::Notice-->
+                                <div
+                                    class="p-6 mb-5 border border-dashed rounded notice d-flex bg-light-warning border-warning">
+                                    <!--begin::Icon-->
+                                    <i class="ki-duotone ki-information fs-2tx text-danger me-4">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                    <!--end::Icon-->
+                                    <!--begin::Wrapper-->
+                                    <div class="d-flex flex-stack flex-grow-1">
+                                        <!--begin::Content-->
+                                        <div class="text-justify fw-semibold">
+                                            <h4 class="text-gray-900 fw-bold">Mohon Perhatian dan Dibaca !</h4>
+                                            <div class="text-gray-700 fs-6">
+                                                Pada halaman Verifikasi Data Sertifikat Pendidik (Serdik) PPG, pastikan
+                                                hal-hal berikut ini sudah diperiksa untuk menjamin keabsahan dan kelengkapan
+                                                data:
+                                                <ol>
+                                                    <li><strong>Nomor Induk Kependudukan (NIK)</strong>: Periksa NIK yang
+                                                        terdaftar pada sertifikat PPG. Pastikan NIK yang dimasukkan pada
+                                                        halaman verifikasi sesuai dengan yang tercantum pada Kartu Tanda
+                                                        Penduduk (KTP) Anda.</li>
+                                                    <li><strong>Nama Lengkap</strong>: Pastikan Nama Lengkap yang terdaftar
+                                                        pada sertifikat PPG sesuai dengan data pribadi Anda yang ada di
+                                                        dokumen resmi seperti KTP dan data akademik (Ijazah S1). Nama yang
+                                                        salah atau tidak sesuai dapat menyebabkan masalah dalam validasi
+                                                        data.</li>
+                                                    <li><strong>Tempat Tanggal Lahir</strong>: Pastikan Tempat Tanggal Lahir
+                                                        yang terdaftar pada sertifikat PPG sesuai dengan data pribadi Anda
+                                                        yang ada di dokumen resmi seperti KTP dan data akademik (Ijazah S1).
+                                                    </li>
+                                                    <li><strong>NIM (Nomor Induk Mahasiswa)</strong>: Pastikan NIM yang
+                                                        terdaftar di sertifikat sesuai dengan yang ada pada dokumen resmi
+                                                        KTM yang diterbitkan oleh LPK Universitas Riau.</li>
+                                                    <li><strong>Tanggal Penerbitan Sertifikat</strong>:
+                                                        {{ \Carbon\Carbon::parse($mahasiswa->tanggalSertifikat)->translatedFormat('d
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            F Y') }}.
+                                                    </li>
+                                                    <li><strong>Pas Foto</strong>: Pastikan pas foto sudah sesuai dengan
+                                                        ketentuan (tidak boleh foto Selfie) silakan <a target='_blank'
+                                                            href='assets/files/Ketentuan-Foto-Serdik.pdf'>cek disini.</a>
+                                                    </li>
+                                                </ol>
+                                            </div>
                                         </div>
+                                        <!--end::Content-->
                                     </div>
-                                    <!--end::Content-->
+                                    <!--end::Wrapper-->
                                 </div>
-                                <!--end::Wrapper-->
-                            </div>
-                            <!--end::Notice-->
-                            <!--end::Title-->
-                            <!--begin::Stats-->
-                            {{-- <div class="flex-wrap d-flex flex-stack">
+                                <!--end::Notice-->
+                                <!--end::Title-->
+                                <!--begin::Stats-->
+                                {{-- <div class="flex-wrap d-flex flex-stack">
                                 <!--begin::Wrapper-->
                                 <div class="d-flex flex-column flex-grow-1 pe-8">
                                     <!--begin::Stats-->
@@ -287,82 +288,82 @@
                                 </div>
                                 <!--end::Progress-->
                             </div> --}}
-                            <!--end::Stats-->
-                        </div>
-                        <!--end::Info-->
-                    </div>
-                    <!--end::Details-->
-                </div>
-            </div>
-            <!--end::Navbar-->
-            <!--begin::Navbar-->
-            <div class="mb-5 card mb-xl-10">
-                <div class="pb-0 card-body pt-9">
-                    <!--begin::Details-->
-                    <div class="flex-wrap d-flex flex-sm-nowrap">
-                        <!--begin: Pic-->
-                        <div class="mb-4 me-7">
-                            <div class="symbol symbol-fixed position-relative" style="width: 120px; height: 160px;">
-                                <img src="{{ $mahasiswa->urlFoto ?: 'assets/media/avatars/default-avatar.jpg' }}"
-                                     alt="Foto Peserta"
-                                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+                                <!--end::Stats-->
                             </div>
-                            {{-- <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+                            <!--end::Info-->
+                        </div>
+                        <!--end::Details-->
+                    </div>
+                </div>
+                <!--end::Navbar-->
+                <!--begin::Navbar-->
+                <div class="mb-5 card mb-xl-10">
+                    <div class="pb-0 card-body pt-9">
+                        <!--begin::Details-->
+                        <div class="flex-wrap d-flex flex-sm-nowrap">
+                            <!--begin: Pic-->
+                            <div class="mb-4 me-7">
+                                <div class="symbol symbol-fixed position-relative" style="width: 120px; height: 160px;">
+                                    <img src="{{ $mahasiswa->urlFoto ?: 'assets/media/avatars/default-avatar.jpg' }}"
+                                        alt="Foto Peserta"
+                                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
+                                </div>
+                                {{-- <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
                                 <img src="{{ $mahasiswa->urlFoto ?: 'assets/media/avatars/default-avatar.jpg' }}"
                                     alt="Foto Peserta" />
                                 <div
                                     class="bottom-0 mb-6 border position-absolute translate-middle start-100 bg-success rounded-circle border-body h-20px w-20px">
                                 </div>
                             </div> --}}
-                        </div>
-                        <!--end::Pic-->
-                        <!--begin::Info-->
-                        <div class="flex-grow-1">
-                            <!--begin::Title-->
-                            <div class="flex-wrap mb-2 d-flex justify-content-between align-items-start">
-                                <!--begin::User-->
-                                <div class="d-flex flex-column">
-                                    <!--begin::Name-->
-                                    <div class="mb-2 d-flex align-items-center">
-                                        <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">{{
-                                            $mahasiswa->namaPeserta }}</a>
-                                        <a href="#">
-                                            <i class="ki-duotone ki-verify fs-1 text-primary">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </a>
-                                    </div>
-                                    <!--end::Name-->
-                                    <!--begin::Info-->
-                                    <div class="flex-wrap mb-4 d-flex fw-semibold fs-6 pe-2">
-                                        <a href="#"
-                                            class="mb-2 text-gray-500 d-flex align-items-center text-hover-primary me-5">
-                                            <i class="ki-duotone ki-profile-circle fs-4 me-1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>{{ $mahasiswa->noUkg }}</a>
+                            </div>
+                            <!--end::Pic-->
+                            <!--begin::Info-->
+                            <div class="flex-grow-1">
+                                <!--begin::Title-->
+                                <div class="flex-wrap mb-2 d-flex justify-content-between align-items-start">
+                                    <!--begin::User-->
+                                    <div class="d-flex flex-column">
+                                        <!--begin::Name-->
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <a href="#"
+                                                class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">{{ $mahasiswa->namaPeserta }}</a>
+                                            <a href="#">
+                                                <i class="ki-duotone ki-verify fs-1 text-primary">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <!--end::Name-->
+                                        <!--begin::Info-->
+                                        <div class="flex-wrap mb-4 d-flex fw-semibold fs-6 pe-2">
+                                            <a href="#"
+                                                class="mb-2 text-gray-500 d-flex align-items-center text-hover-primary me-5">
+                                                <i class="ki-duotone ki-profile-circle fs-4 me-1">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                </i>{{ $mahasiswa->noUkg }}</a>
 
-                                        <a href="#"
-                                            class="mb-2 text-gray-500 d-flex align-items-center text-hover-primary me-5">
-                                            <i class="ki-duotone ki-geolocation fs-4 me-1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>{{ $mahasiswa->namaBidangStudi}}</a>
-                                        {{-- <a href="#"
+                                            <a href="#"
+                                                class="mb-2 text-gray-500 d-flex align-items-center text-hover-primary me-5">
+                                                <i class="ki-duotone ki-geolocation fs-4 me-1">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>{{ $mahasiswa->namaBidangStudi }}</a>
+                                            {{-- <a href="#"
                                             class="mb-2 text-gray-500 d-flex align-items-center text-hover-primary">
                                             <i class="ki-duotone ki-sms fs-4">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
                                             </i>max@kt.com</a> --}}
-                                    </div>
-                                    <!--end::Info-->
+                                        </div>
+                                        <!--end::Info-->
 
-                                </div>
-                                <!--end::User-->
-                                <!--begin::Actions-->
-                                {{-- <div class="my-4 d-flex">
+                                    </div>
+                                    <!--end::User-->
+                                    <!--begin::Actions-->
+                                    {{-- <div class="my-4 d-flex">
                                     <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
                                         <i class="ki-duotone ki-check fs-3 d-none"></i>
                                         <!--begin::Indicator label-->
@@ -477,11 +478,11 @@
                                     </div>
                                     <!--end::Menu-->
                                 </div> --}}
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Title-->
-                            <!--begin::Stats-->
-                            {{-- <div class="flex-wrap d-flex flex-stack">
+                                    <!--end::Actions-->
+                                </div>
+                                <!--end::Title-->
+                                <!--begin::Stats-->
+                                {{-- <div class="flex-wrap d-flex flex-stack">
                                 <!--begin::Wrapper-->
                                 <div class="d-flex flex-column flex-grow-1 pe-8">
                                     <!--begin::Stats-->
@@ -561,13 +562,13 @@
                                 </div>
                                 <!--end::Progress-->
                             </div> --}}
-                            <!--end::Stats-->
+                                <!--end::Stats-->
+                            </div>
+                            <!--end::Info-->
                         </div>
-                        <!--end::Info-->
-                    </div>
-                    <!--end::Details-->
-                    <!--begin::Navs-->
-                    {{-- <ul class="border-transparent nav nav-stretch nav-line-tabs nav-line-tabs-2x fs-5 fw-bold">
+                        <!--end::Details-->
+                        <!--begin::Navs-->
+                        {{-- <ul class="border-transparent nav nav-stretch nav-line-tabs nav-line-tabs-2x fs-5 fw-bold">
                         <!--begin::Nav item-->
                         <li class="mt-2 nav-item">
                             <a class="py-5 nav-link text-active-primary ms-0 me-10 active"
@@ -622,197 +623,200 @@
                         </li>
                         <!--end::Nav item-->
                     </ul> --}}
-                    <!--begin::Navs-->
+                        <!--begin::Navs-->
+                    </div>
                 </div>
-            </div>
-            <!--end::Navbar-->
-            <!--begin::details View-->
-            <div class="mb-5 card mb-xl-10" id="kt_profile_details_view">
-                <!--begin::Card header-->
-                <div class="cursor-pointer card-header">
-                    <!--begin::Card title-->
-                    <div class="m-0 card-title">
-                        <h3 class="m-0 fw-bold">
-                            Data Pendidik</h3>
-                    </div>
-                    <!--end::Card title-->
-                    <!--begin::Action-->
-                    {{-- <a href="#" class="btn btn-sm btn-primary align-self-center">Lapor Kesalahan</a> --}}
-                    <!--end::Action-->
-                </div>
-                <!--begin::Card header-->
-                <!--begin::Card body-->
-                <div class="card-body p-9">
-                    <!--begin::Row-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Nama Lengkap</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            <span class="text-gray-800 fw-bold fs-6">{{ $mahasiswa->namaPeserta }}</span>
+                <!--end::Navbar-->
+                <!--begin::details View-->
+                <div class="mb-5 card mb-xl-10" id="kt_profile_details_view">
+                    <!--begin::Card header-->
+                    <div class="cursor-pointer card-header">
+                        <!--begin::Card title-->
+                        <div class="m-0 card-title">
+                            <h3 class="m-0 fw-bold">
+                                Data Pendidik</h3>
                         </div>
-                        <!--end::Col-->
+                        <!--end::Card title-->
+                        <!--begin::Action-->
+                        {{-- <a href="#" class="btn btn-sm btn-primary align-self-center">Lapor Kesalahan</a> --}}
+                        <!--end::Action-->
                     </div>
-                    <!--end::Row-->
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Tempat /Tanggal Lahir</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            <span class="text-gray-800 fw-bold fs-6"> {{ $mahasiswa->tempatLahir }},
-                                {{ \Carbon\Carbon::parse($mahasiswa->tanggalLahir)->translatedFormat('d F Y') }}</span>
+                    <!--begin::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body p-9">
+                        <!--begin::Row-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">Nama Lengkap</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                <span class="text-gray-800 fw-bold fs-6">{{ $mahasiswa->namaPeserta }}</span>
+                            </div>
+                            <!--end::Col-->
                         </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">No UKG</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8 fv-row">
-                            <span class="text-gray-800 fw-semibold fs-6">{{ $mahasiswa->noUkg}}</span>
+                        <!--end::Row-->
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">Tempat /Tanggal Lahir</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                <span class="text-gray-800 fw-bold fs-6"> {{ $mahasiswa->tempatLahir }},
+                                    {{ \Carbon\Carbon::parse($mahasiswa->tanggalLahir)->translatedFormat('d F Y') }}</span>
+                            </div>
+                            <!--end::Col-->
                         </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="mb-7 row">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Program Studi</label>
-                        <!--begin::Label-->
-                        <!--begin::Label-->
-                        <div class="col-lg-8">
-                            <span class="text-gray-800 fw-semibold fs-6">{{ $mahasiswa->namaBidangStudi }}</span>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">No UKG</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 fv-row">
+                                <span class="text-gray-800 fw-semibold fs-6">{{ $mahasiswa->noUkg }}</span>
+                            </div>
+                            <!--end::Col-->
                         </div>
-                        <!--begin::Label-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">NIK
-                            {{-- <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="mb-7 row">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">Program Studi</label>
+                            <!--begin::Label-->
+                            <!--begin::Label-->
+                            <div class="col-lg-8">
+                                <span class="text-gray-800 fw-semibold fs-6">{{ $mahasiswa->namaBidangStudi }}</span>
+                            </div>
+                            <!--begin::Label-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">NIK
+                                {{-- <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
                                 <i class="ki-duotone ki-information fs-7">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                     <span class="path3"></span>
                                 </i>
                             </span> --}}
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8 d-flex align-items-center">
-                            <span class="text-gray-800 fw-bold fs-6 me-2x">{{ $mahasiswa->nik }}</span>
-                            {{-- <span class="badge badge-success">Verified</span> --}}
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8 d-flex align-items-center">
+                                <span class="text-gray-800 fw-bold fs-6 me-2x">{{ $mahasiswa->nik }}</span>
+                                {{-- <span class="badge badge-success">Verified</span> --}}
+                            </div>
+                            <!--end::Col-->
                         </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Nomor Sertifikat Pendidik</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            <span target="_blank" href="{{ $mahasiswa->linkPreviewSertifikat}}"
-                                class="text-gray-800 fw-semibold fs-6 text-hover-primary">{{
-                                $mahasiswa->nomorSertifikatPendidik }}</span>
-                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">Nomor Sertifikat Pendidik</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                <span target="_blank" href="{{ $mahasiswa->linkPreviewSertifikat }}"
+                                    class="text-gray-800 fw-semibold fs-6 text-hover-primary">{{ $mahasiswa->nomorSertifikatPendidik }}</span>
+                            </div>
 
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    @if($mahasiswa->linkFinalSertifikat)
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Download Sertifikat</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            <a target="_blank" href="{{ $mahasiswa->linkFinalSertifikat}}"
-                                class="text-gray-800x fw-semibold fs-6 text-hover-primaryx btn btn-success btn-sm">Download Sertifikat</a>
+                            <!--end::Col-->
                         </div>
+                        <!--end::Input group-->
+                        @if ($mahasiswa->linkFinalSertifikat)
+                            <!--begin::Input group-->
+                            <div class="row mb-7">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 fw-semibold text-muted">Download Sertifikat</label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8">
+                                    <a target="_blank" href="{{ $mahasiswa->linkFinalSertifikat }}"
+                                        class="text-gray-800x fw-semibold fs-6 text-hover-primaryx btn btn-success btn-sm">Download
+                                        Sertifikat</a>
+                                </div>
 
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    @endif
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">NIM
-                            {{-- <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Input group-->
+                        @endif
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">NIM
+                                {{-- <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
                                 <i class="ki-duotone ki-information fs-7">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
                                     <span class="path3"></span>
                                 </i>
                             </span> --}}
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            {{-- <a href="#" class="text-gray-800 fw-semibold fs-6 text-hover-primary">{{
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                {{-- <a href="#" class="text-gray-800 fw-semibold fs-6 text-hover-primary">{{
                                 $mahasiswa->nim }}</a> --}}
-                            <span class="text-gray-800 fw-bold fs-6">{{ $mahasiswa->nim }}</span>
+                                <span class="text-gray-800 fw-bold fs-6">{{ $mahasiswa->nim }}</span>
+                            </div>
+                            <!--end::Col-->
                         </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
+                        <!--end::Input group-->
 
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">SK</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            @if($mahasiswa->piloting == 1)
-                            <a target="_blank" href="assets/files/pil1.pdf" class="btn btn-sm btn-secondary">Lihat
-                                SK</a>
-                            @elseif ($mahasiswa->piloting == 2)
-                            <a target="_blank" href="assets/files/pil2.pdf" class="btn btn-sm btn-secondary">Lihat
-                                SK</a>
-                            @elseif ($mahasiswa->piloting == 3)
-                            <a target="_blank" href="assets/files/pil3.pdf" class="btn btn-sm btn-secondary">Lihat
-                                SK</a>
-                            @else
-                            <a target="" href="#" class="btn btn-sm btn-secondary">SK BELUM TERBIT</a>
-                            @endif
+                        <!--begin::Input group-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-semibold text-muted">SK</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                @if ($mahasiswa->piloting == 1)
+                                    <a target="_blank" href="assets/files/pil1.pdf"
+                                        class="btn btn-sm btn-secondary">Lihat
+                                        SK</a>
+                                @elseif ($mahasiswa->piloting == 2)
+                                    <a target="_blank" href="assets/files/pil2.pdf"
+                                        class="btn btn-sm btn-secondary">Lihat
+                                        SK</a>
+                                @elseif ($mahasiswa->piloting == 3)
+                                    <a target="_blank" href="assets/files/pil3.pdf"
+                                        class="btn btn-sm btn-secondary">Lihat
+                                        SK</a>
+                                @else
+                                    <a target="" href="#" class="btn btn-sm btn-secondary">SK BELUM TERBIT</a>
+                                @endif
+                            </div>
+
+
+                            <!--end::Col-->
                         </div>
 
-
-                        <!--end::Col-->
                     </div>
+                    <!--end::Card body-->
 
                 </div>
-                <!--end::Card body-->
-
-            </div>
-            <div class="mb-5 card mb-xl-10">
-                <div class="pb-0 p-5">
-                    <!--begin::Details-->
-                    <div class="flex-wrap d-flexx flex-sm-nowrap">
-                        <!--begin::Info-->
-                        <div class="flex-grow-1">
-                            <!--begin::Notice-->
-                            <div
-                                class="p-3 mb-5 border border-dashed rounded notice d-flex bg-light-warning border-warning">
-                                <!--begin::Icon-->
-                                <i class="ki-duotone ki-information fs-2tx text-danger me-4">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                                <!--end::Icon-->
-                                <!--begin::Wrapper-->
+                <div class="mb-5 card mb-xl-10">
+                    <div class="p-5 pb-0">
+                        <!--begin::Details-->
+                        <div class="flex-wrap d-flexx flex-sm-nowrap">
+                            <!--begin::Info-->
+                            <div class="flex-grow-1">
+                                <!--begin::Notice-->
+                                <div
+                                    class="p-3 mb-5 border border-dashed rounded notice d-flex bg-light-warning border-warning">
+                                    <!--begin::Icon-->
+                                    <i class="ki-duotone ki-information fs-2tx text-danger me-4">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                    <!--end::Icon-->
+                                    {{-- <!--begin::Wrapper-->
                                 <div class="d-flex flex-stack flex-grow-1">
                                     <!--begin::Content-->
                                     <div class="text-justify fw-semibold ">
@@ -827,12 +831,31 @@
                                     </div>
                                     <!--end::Content-->
                                 </div>
-                                <!--end::Wrapper-->
-                            </div>
-                            <!--end::Notice-->
-                            <!--end::Title-->
-                            <!--begin::Stats-->
-                            {{-- <div class="flex-wrap d-flex flex-stack">
+                                <!--end::Wrapper--> --}}
+                                    <!--begin::Wrapper-->
+                                    <div class="d-flex flex-stack flex-grow-1">
+                                        <!--begin::Content-->
+                                        <div class="text-justify fw-semibold ">
+                                            <h4 class="text-gray-900 fw-bold">Mohon Diperhatikan !</h4>
+                                            <div class="mr-10 text-gray-700 fs-6">Jika terdapat kesalahan data pada isian
+                                                sertifikat
+                                                pendidik (serdik) di atas, silakan klik di tombol lapor untuk melakukan
+                                                perbaikan,
+                                                Lalu data dukung nya silakan kirimkan ke google form dengan cara klik tombol
+                                                berikut ini :
+                                                {{-- <span class="text-primary">verifikasiserdikppg.fkip@staff.unri.ac.id</span> --}}
+                                                <a href="https://forms.gle/AMf17UifRqoaDMY27" target="_blank"
+                                                    class="pl-5 ml-10 btn btn-sm fw-bold btn-warning">LAPOR</a>
+                                            </div>
+                                        </div>
+                                        <!--end::Content-->
+                                    </div>
+                                    <!--end::Wrapper-->
+                                </div>
+                                <!--end::Notice-->
+                                <!--end::Title-->
+                                <!--begin::Stats-->
+                                {{-- <div class="flex-wrap d-flex flex-stack">
                                 <!--begin::Wrapper-->
                                 <div class="d-flex flex-column flex-grow-1 pe-8">
                                     <!--begin::Stats-->
@@ -912,15 +935,15 @@
                                 </div>
                                 <!--end::Progress-->
                             </div> --}}
-                            <!--end::Stats-->
+                                <!--end::Stats-->
+                            </div>
+                            <!--end::Info-->
                         </div>
-                        <!--end::Info-->
+                        <!--end::Details-->
                     </div>
-                    <!--end::Details-->
                 </div>
-            </div>
-            <!--end::details View-->
-            {{--
+                <!--end::details View-->
+                {{--
             <!--begin::Row-->
             <div class="row gy-5 g-xl-10">
                 <!--begin::Col-->
@@ -2178,115 +2201,120 @@
                 <!--end::Col-->
             </div>
             <!--end::Row--> --}}
+            </div>
+            <!--end::Content container-->
         </div>
-        <!--end::Content container-->
+        <!--end::Content-->
     </div>
-    <!--end::Content-->
-</div>
 
 @endsection
 
 @push('script')
-<script type="text/javascript">
-    $(document).ready(function () {
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-    // Event ketika modal dibuka
-    $('#kt_modal_lapor').on('show.bs.modal', function (e) {
-        let nim = $(this).data('nim'); // Ambil NIM dari atribut modal
-        let modal = $(this);
+            // Event ketika modal dibuka
+            $('#kt_modal_lapor').on('show.bs.modal', function(e) {
+                let nim = $(this).data('nim'); // Ambil NIM dari atribut modal
+                let modal = $(this);
 
-        // Bersihkan modal
-        modal.find('#keterangan').val('');
-        modal.find('.alert').remove(); // Hapus pesan sebelumnya
+                // Bersihkan modal
+                modal.find('#keterangan').val('');
+                modal.find('.alert').remove(); // Hapus pesan sebelumnya
 
-        // AJAX untuk fetch data
-        $.ajax({
-            url: '/konfirmasi/fetch',
-            method: 'GET',
-            data: { nim: nim },
-            success: function (response) {
-                if (response.success && response.data) {
-                    modal.find('#keterangan').val(response.data.keterangan);
-                    // Jika statusnya 1, nonaktifkan tombol simpan dan tampilkan pesan
-                    if (response.data.status == 1) {
-                        modal.find('#keterangan').prop('disabled', true); // Disable input keterangan
-                        modal.find('#kt_modal_lapor_submit').prop('disabled', true).hide(); // Sembunyikan tombol
+                // AJAX untuk fetch data
+                $.ajax({
+                    url: '/konfirmasi/fetch',
+                    method: 'GET',
+                    data: {
+                        nim: nim
+                    },
+                    success: function(response) {
+                        if (response.success && response.data) {
+                            modal.find('#keterangan').val(response.data.keterangan);
+                            // Jika statusnya 1, nonaktifkan tombol simpan dan tampilkan pesan
+                            if (response.data.status == 1) {
+                                modal.find('#keterangan').prop('disabled',
+                                    true); // Disable input keterangan
+                                modal.find('#kt_modal_lapor_submit').prop('disabled', true)
+                                    .hide(); // Sembunyikan tombol
+                                Swal.fire({
+                                    text: 'Laporan Anda sudah dikonfirmasi.',
+                                    icon: 'info',
+                                });
+                            }
+                        }
+                    },
+                    error: function() {
+                        let pesan = 'Gagal memuat data, coba lagi.';
                         Swal.fire({
-                            text: 'Laporan Anda sudah dikonfirmasi.',
-                            icon: 'info',
+                            text: pesan,
+                            icon: 'error',
                         });
                     }
-                }
-            },
-            error: function () {
-                let pesan = 'Gagal memuat data, coba lagi.';
-                Swal.fire({
-                        text: pesan,
-                        icon: 'error',
-                    });
-            }
-        });
-    });
+                });
+            });
 
-    // Event ketika tombol submit ditekan
-    $('#kt_modal_lapor_submit').click(function () {
-        let nim = $('#kt_modal_lapor').data('nim');
-        let keterangan = $('#keterangan').val();
-        let modal = $('#kt_modal_lapor');
+            // Event ketika tombol submit ditekan
+            $('#kt_modal_lapor_submit').click(function() {
+                let nim = $('#kt_modal_lapor').data('nim');
+                let keterangan = $('#keterangan').val();
+                let modal = $('#kt_modal_lapor');
 
-        // AJAX untuk simpan data
-        $.ajax({
-            url: '/konfirmasi/simpan',
-            method: 'POST',
-            data: {
-                _token: $('meta[name="csrf-token"]').attr('content'),
-                nim: nim,
-                keterangan: keterangan
-            },
-            beforeSend: function () {
-                modal.find('.alert').remove(); // Hapus pesan sebelumnya
-                $('#kt_modal_lapor_submit .indicator-progress').show();
-            },
-            success: function (response) {
-                if (response.status === 'success') {
-                    Swal.fire({
-                        text: response.message,
-                        icon: 'success',
-                    });
-                    $('#kt_modal_lapor').modal('hide'); // Tutup modal
-                }
-            },
-            error: function (xhr) {
-                let errors = xhr.responseJSON.errors;
-                if (errors) {
-                    let errorMessages = '';
-                    for (let key in errors) {
-                        errorMessages += `<div class="alert alert-danger">${errors[key]}</div>`;
+                // AJAX untuk simpan data
+                $.ajax({
+                    url: '/konfirmasi/simpan',
+                    method: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        nim: nim,
+                        keterangan: keterangan
+                    },
+                    beforeSend: function() {
+                        modal.find('.alert').remove(); // Hapus pesan sebelumnya
+                        $('#kt_modal_lapor_submit .indicator-progress').show();
+                    },
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            Swal.fire({
+                                text: response.message,
+                                icon: 'success',
+                            });
+                            $('#kt_modal_lapor').modal('hide'); // Tutup modal
+                        }
+                    },
+                    error: function(xhr) {
+                        let errors = xhr.responseJSON.errors;
+                        if (errors) {
+                            let errorMessages = '';
+                            for (let key in errors) {
+                                errorMessages +=
+                                    `<div class="alert alert-danger">${errors[key]}</div>`;
+                            }
+                            $('#kt_modal_lapor .modal-body').prepend(
+                                errorMessages); // Tampilkan pesan di modal
+                        }
+                        // let errors = xhr.responseJSON.errors;
+                        // if (errors) {
+                        //     for (let key in errors) {
+                        //         modal.find('.modal-body').prepend(`
+                    //             <div class="alert alert-danger">${errors[key]}</div>
+                    //         `);
+                        //     }
+                        // } else {
+                        //     alert('Terjadi kesalahan, silakan coba lagi.');
+                        // }
+                    },
+                    complete: function() {
+                        $('#kt_modal_lapor_submit .indicator-progress').hide();
                     }
-                    $('#kt_modal_lapor .modal-body').prepend(errorMessages); // Tampilkan pesan di modal
-                }
-                // let errors = xhr.responseJSON.errors;
-                // if (errors) {
-                //     for (let key in errors) {
-                //         modal.find('.modal-body').prepend(`
-                //             <div class="alert alert-danger">${errors[key]}</div>
-                //         `);
-                //     }
-                // } else {
-                //     alert('Terjadi kesalahan, silakan coba lagi.');
-                // }
-            },
-            complete: function () {
-                $('#kt_modal_lapor_submit .indicator-progress').hide();
-            }
+                });
+            });
+
+            // Tombol batal untuk menutup modal
+            $('#kt_modal_lapor_cancel').click(function() {
+                $('#kt_modal_lapor').modal('hide');
+            });
         });
-    });
-
-    // Tombol batal untuk menutup modal
-    $('#kt_modal_lapor_cancel').click(function () {
-        $('#kt_modal_lapor').modal('hide');
-    });
-});
-
-</script>
+    </script>
 @endpush
